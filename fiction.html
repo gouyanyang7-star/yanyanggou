@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FICTION / 虚构 - 生命花园</title>
+    <link rel="stylesheet" href="生命花园_style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300&family=Noto+Serif+SC:wght@300;400&family=Inter:wght@300;400&display=swap" rel="stylesheet">
+    <style>
+        /* ========================================
+           FICTION 虚构主页 - 合集封面陈列
+           ======================================== */
+
+        .fiction-page {
+            min-height: 100vh;
+            background-color: var(--color-bg);
+            padding-top: 80px;
+        }
+
+        /* 页面头部 */
+        .fiction-header {
+            padding: 6rem 8% 2rem;
+            text-align: center;
+        }
+
+        .fiction-header-en {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 2.2rem;
+            font-weight: 300;
+            letter-spacing: 0.4em;
+            color: var(--color-text-main);
+            margin-bottom: 0.5rem;
+        }
+
+        .fiction-header-zh {
+            font-family: 'Noto Serif SC', serif;
+            font-size: 1rem;
+            font-weight: 300;
+            letter-spacing: 0.3em;
+            color: var(--color-mist-blue);
+            opacity: 0.8;
+        }
+
+        /* 合集容器 */
+        .collection-container {
+            padding: 4rem 8% 8rem;
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            gap: 4rem;
+            flex-wrap: wrap;
+        }
+
+        /* 合集封面卡片 */
+        .collection-card {
+            width: 320px;
+            background: rgba(255, 255, 255, 0.4);
+            border: 1px solid rgba(44, 48, 46, 0.04);
+            padding: 4rem 2.5rem;
+            text-decoration: none;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 8px 32px rgba(44, 48, 46, 0.03);
+            transition: all 0.6s cubic-bezier(0.25, 1, 0.5, 1);
+        }
+
+        /* 微光渐变叠加 */
+        .collection-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle at top right, rgba(212, 180, 153, 0.12), transparent 60%);
+            opacity: 0;
+            transition: opacity 0.6s cubic-bezier(0.25, 1, 0.5, 1);
+            pointer-events: none;
+        }
+
+        .collection-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 16px 48px rgba(44, 48, 46, 0.06);
+        }
+
+        .collection-card:hover::before {
+            opacity: 1;
+        }
+
+        /* 系列标签 */
+        .collection-tag {
+            font-family: 'Inter', sans-serif;
+            font-size: 0.65rem;
+            font-weight: 400;
+            letter-spacing: 0.2em;
+            color: var(--color-mist-blue);
+            opacity: 0.7;
+            margin-bottom: 1.5rem;
+            text-transform: uppercase;
+        }
+
+        /* 系列名称 */
+        .collection-title {
+            font-family: 'Noto Serif SC', serif;
+            font-size: 1.6rem;
+            font-weight: 400;
+            letter-spacing: 0.15em;
+            color: var(--color-text-main);
+            margin-bottom: 1rem;
+            transition: color 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+            line-height: 1.6;
+        }
+
+        .collection-card:hover .collection-title {
+            color: var(--color-forest);
+        }
+
+        /* 系列简介 */
+        .collection-desc {
+            font-family: 'Inter', -apple-system, sans-serif;
+            font-size: 0.85rem;
+            line-height: 1.8;
+            color: var(--color-text-muted);
+            letter-spacing: 0.02em;
+            margin-bottom: 2rem;
+        }
+
+        /* 文章数量标注 */
+        .collection-count {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 0.8rem;
+            letter-spacing: 0.15em;
+            color: var(--color-forest);
+            opacity: 0.8;
+            padding-top: 1.5rem;
+            border-top: 1px solid rgba(44, 48, 46, 0.06);
+        }
+
+        /* 箭头指示 */
+        .collection-arrow {
+            position: absolute;
+            bottom: 2rem;
+            right: 2rem;
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.2rem;
+            color: var(--color-text-muted);
+            opacity: 0;
+            transform: translateX(-8px);
+            transition: all 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+        }
+
+        .collection-card:hover .collection-arrow {
+            opacity: 0.6;
+            transform: translateX(0);
+        }
+
+        /* 响应式 */
+        @media (max-width: 768px) {
+            .fiction-header {
+                padding: 4rem 5% 2rem;
+            }
+
+            .collection-container {
+                padding: 2rem 5% 6rem;
+            }
+
+            .collection-card {
+                width: 100%;
+                max-width: 360px;
+                padding: 3rem 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 顶部悬浮导航栏 -->
+    <nav class="top-nav">
+        <a href="index.html" class="nav-item">
+            <span class="nav-en">HOME</span>
+            <span class="nav-zh">首页</span>
+        </a>
+        <a href="about.html" class="nav-item">
+            <span class="nav-en">ABOUT ME</span>
+            <span class="nav-zh">关于我</span>
+        </a>
+        <a href="fiction.html" class="nav-item" style="opacity: 1;">
+            <span class="nav-en" style="color: var(--color-forest);">FICTION</span>
+            <span class="nav-zh" style="opacity: 1; transform: translateY(0);">虚构</span>
+        </a>
+        <a href="brunch.html" class="nav-item">
+            <span class="nav-en">THE BRUNCH</span>
+            <span class="nav-zh">早午餐</span>
+        </a>
+        <a href="blog.html" class="nav-item">
+            <span class="nav-en">BLOG</span>
+            <span class="nav-zh">博客</span>
+        </a>
+        <a href="photography.html" class="nav-item">
+            <span class="nav-en">PHOTOGRAPHY</span>
+            <span class="nav-zh">摄影</span>
+        </a>
+        <a href="travel.html" class="nav-item">
+            <span class="nav-en">TRAVEL</span>
+            <span class="nav-zh">旅行</span>
+        </a>
+    </nav>
+
+    <!-- 虚构主页 -->
+    <main class="fiction-page">
+        <!-- 页面头部 -->
+        <header class="fiction-header">
+            <h1 class="fiction-header-en">FICTION</h1>
+            <p class="fiction-header-zh">虚构</p>
+        </header>
+
+        <!-- 合集陈列 -->
+        <section class="collection-container">
+            <!-- 夜色尚浅 同人系列 -->
+            <a href="fiction-collection-fanfic.html" class="collection-card">
+                <p class="collection-tag">Fanfiction</p>
+                <h2 class="collection-title">夜色尚浅</h2>
+                <p class="collection-count">2 篇收录</p>
+                <span class="collection-arrow">→</span>
+            </a>
+
+            <!-- 更多敬请期待 -->
+            <div class="collection-card collection-card--coming">
+                <p class="collection-tag">···</p>
+                <h2 class="collection-title">更多系列</h2>
+                <p class="collection-count" style="color: var(--color-mist-blue); opacity: 0.7;">敬请期待</p>
+            </div>
+        </section>
+
+        <!-- 终章落款 -->
+        <footer class="footer">
+            <div class="footer-signature">
+                <p class="footer-line">此致</p>
+                <p class="footer-name">y</p>
+            </div>
+        </footer>
+    </main>
+</body>
+</html>

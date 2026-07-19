@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>夜色尚浅 - 同人系列 - 生命花园</title>
+    <link rel="stylesheet" href="生命花园_style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300&family=Noto+Serif+SC:wght@300;400&family=Inter:wght@300;400&display=swap" rel="stylesheet">
+    <style>
+        /* ========================================
+           同人合集内页 - 夜色尚浅
+           ======================================== */
+
+        .collection-page {
+            min-height: 100vh;
+            background-color: var(--color-bg);
+            padding-top: 80px;
+        }
+
+        /* 系列头部 */
+        .series-header {
+            padding: 8rem 10% 4rem;
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .series-tag {
+            font-family: 'Inter', sans-serif;
+            font-size: 0.7rem;
+            font-weight: 400;
+            letter-spacing: 0.25em;
+            color: var(--color-mist-blue);
+            opacity: 0.7;
+            text-transform: uppercase;
+            margin-bottom: 1.5rem;
+        }
+
+        .series-title {
+            font-family: 'Noto Serif SC', serif;
+            font-size: 2.8rem;
+            font-weight: 300;
+            letter-spacing: 0.2em;
+            color: var(--color-text-main);
+            margin-bottom: 3rem;
+            line-height: 1.4;
+        }
+
+        .series-intro {
+            font-family: 'Inter', -apple-system, sans-serif;
+            font-size: 1rem;
+            line-height: 2.2;
+            color: var(--color-text-muted);
+            letter-spacing: 0.03em;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .series-intro p {
+            margin-bottom: 1.5rem;
+        }
+
+        /* 分隔线 */
+        .series-divider {
+            width: 60px;
+            height: 1px;
+            background: rgba(44, 48, 46, 0.12);
+            margin: 5rem auto;
+        }
+
+        /* 文章陈列区 */
+        .articles-section {
+            padding: 0 10% 8rem;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .articles-header {
+            font-family: 'Inter', sans-serif;
+            font-size: 0.75rem;
+            letter-spacing: 0.25em;
+            color: var(--color-text-muted);
+            opacity: 0.6;
+            text-transform: uppercase;
+            margin-bottom: 3rem;
+            text-align: center;
+        }
+
+        /* 杂志错落排版 - 横向卡片流 */
+        .articles-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 3rem;
+        }
+
+        /* 文章卡片 */
+        .article-card {
+            background: rgba(255, 255, 255, 0.4);
+            border: 1px solid rgba(44, 48, 46, 0.04);
+            padding: 2.5rem 2rem;
+            text-decoration: none;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 8px 32px rgba(44, 48, 46, 0.03);
+            transition: all 0.6s cubic-bezier(0.25, 1, 0.5, 1);
+        }
+
+        /* 微光渐变 */
+        .article-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle at bottom left, rgba(212, 180, 153, 0.1), transparent 60%);
+            opacity: 0;
+            transition: opacity 0.6s cubic-bezier(0.25, 1, 0.5, 1);
+            pointer-events: none;
+        }
+
+        .article-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 12px 40px rgba(44, 48, 46, 0.05);
+        }
+
+        .article-card:hover::before {
+            opacity: 1;
+        }
+
+        /* 文章序号 */
+        .article-number {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 0.9rem;
+            color: var(--color-mist-blue);
+            opacity: 0.5;
+            margin-bottom: 1.2rem;
+            letter-spacing: 0.1em;
+        }
+
+        /* 文章标题 */
+        .article-title {
+            font-family: 'Noto Serif SC', serif;
+            font-size: 1.25rem;
+            font-weight: 400;
+            letter-spacing: 0.1em;
+            color: var(--color-text-main);
+            margin-bottom: 0.8rem;
+            transition: color 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+            line-height: 1.6;
+        }
+
+        .article-card:hover .article-title {
+            color: var(--color-forest);
+        }
+
+        /* 文章日期 */
+        .article-date {
+            font-family: 'Inter', sans-serif;
+            font-size: 0.75rem;
+            letter-spacing: 0.15em;
+            color: var(--color-mist-blue);
+            opacity: 0.8;
+            margin-bottom: 1.5rem;
+        }
+
+        /* 文章简介 */
+        .article-excerpt {
+            font-family: 'Inter', -apple-system, sans-serif;
+            font-size: 0.9rem;
+            line-height: 1.8;
+            color: var(--color-text-muted);
+            letter-spacing: 0.02em;
+        }
+
+        /* 阅读更多 */
+        .article-read-more {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 0.85rem;
+            letter-spacing: 0.15em;
+            color: var(--color-forest);
+            opacity: 0;
+            transform: translateY(8px);
+            transition: all 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+            margin-top: 1.5rem;
+            display: block;
+        }
+
+        .article-card:hover .article-read-more {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* 返回按钮 */
+        .back-link {
+            display: inline-block;
+            font-family: 'Inter', sans-serif;
+            font-size: 0.8rem;
+            letter-spacing: 0.15em;
+            color: var(--color-text-muted);
+            text-decoration: none;
+            padding: 0.8rem 0;
+            margin-bottom: 2rem;
+            transition: color 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+        }
+
+        .back-link:hover {
+            color: var(--color-forest);
+        }
+
+        /* 响应式 */
+        @media (max-width: 900px) {
+            .articles-grid {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .series-header {
+                padding: 6rem 5% 3rem;
+            }
+
+            .articles-section {
+                padding: 0 5% 6rem;
+            }
+
+            .series-title {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 顶部悬浮导航栏 -->
+    <nav class="top-nav">
+        <a href="index.html" class="nav-item">
+            <span class="nav-en">HOME</span>
+            <span class="nav-zh">首页</span>
+        </a>
+        <a href="about.html" class="nav-item">
+            <span class="nav-en">ABOUT ME</span>
+            <span class="nav-zh">关于我</span>
+        </a>
+        <a href="fiction.html" class="nav-item" style="opacity: 1;">
+            <span class="nav-en" style="color: var(--color-forest);">FICTION</span>
+            <span class="nav-zh" style="opacity: 1; transform: translateY(0);">虚构</span>
+        </a>
+        <a href="brunch.html" class="nav-item">
+            <span class="nav-en">THE BRUNCH</span>
+            <span class="nav-zh">早午餐</span>
+        </a>
+        <a href="blog.html" class="nav-item">
+            <span class="nav-en">BLOG</span>
+            <span class="nav-zh">博客</span>
+        </a>
+        <a href="photography.html" class="nav-item">
+            <span class="nav-en">PHOTOGRAPHY</span>
+            <span class="nav-zh">摄影</span>
+        </a>
+        <a href="travel.html" class="nav-item">
+            <span class="nav-en">TRAVEL</span>
+            <span class="nav-zh">旅行</span>
+        </a>
+    </nav>
+
+    <!-- 同人合集页面 -->
+    <main class="collection-page">
+        <!-- 系列头部 -->
+        <header class="series-header">
+            <p class="series-tag">Fanfiction · 云之羽同人</p>
+            <h1 class="series-title">夜色尚浅</h1>
+        </header>
+
+        <!-- 分隔线 -->
+        <div class="series-divider"></div>
+
+        <!-- 文章陈列 -->
+        <section class="articles-section">
+            <p class="articles-header">收录作品</p>
+
+            <div class="articles-grid">
+                <!-- 文章 01 -->
+                <a href="post-fanfic-01.html" class="article-card">
+                    <p class="article-number">01</p>
+                    <h2 class="article-title">终章（上）：身后名</h2>
+                    <span class="article-read-more">阅读全文 →</span>
+                </a>
+
+                <!-- 文章 02 -->
+                <a href="post-fanfic-02.html" class="article-card">
+                    <p class="article-number">02</p>
+                    <h2 class="article-title">终章（下）：谴悲怀</h2>
+                    <span class="article-read-more">阅读全文 →</span>
+                </a>
+            </div>
+        </section>
+
+        <!-- 返回虚构主页 -->
+        <div style="text-align: center; padding: 0 10% 6rem;">
+            <a href="fiction.html" class="back-link">← 返回虚构</a>
+        </div>
+
+        <!-- 终章落款 -->
+        <footer class="footer">
+            <div class="footer-signature">
+                <p class="footer-line">此致</p>
+                <p class="footer-name">y</p>
+            </div>
+        </footer>
+    </main>
+</body>
+</html>

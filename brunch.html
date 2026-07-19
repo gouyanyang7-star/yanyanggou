@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>THE BRUNCH - 生命花园</title>
+    <link rel="stylesheet" href="生命花园_style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300&family=Noto+Serif+SC:wght@300;400&family=Inter:wght@300;400&display=swap" rel="stylesheet">
+    <style>
+        /* Brunch 页面专属样式 - 《纽约客》专栏风格 */
+        .brunch-page {
+            min-height: 100vh;
+            padding-top: 80px;
+            background-color: var(--color-bg);
+        }
+
+        /* 专栏头部 */
+        .brunch-header {
+            text-align: center;
+            padding: 4rem 2rem 2rem;
+        }
+
+        .brunch-header h1 {
+            font-family: 'Inter', -apple-system, sans-serif;
+            font-size: 1.8rem;
+            font-weight: 300;
+            letter-spacing: 0.4em;
+            color: var(--color-text-main);
+            margin-bottom: 1rem;
+        }
+
+        .brunch-header-sub {
+            font-family: 'Noto Serif SC', serif;
+            font-size: 1rem;
+            font-weight: 300;
+            letter-spacing: 0.2em;
+            color: var(--color-forest);
+        }
+
+        /* 大面积留白 */
+        .brunch-intro-space {
+            height: 80px;
+        }
+
+        /* 不规则错落网格 */
+        .brunch-grid {
+            display: flex;
+            justify-content: center;
+            gap: 4rem;
+            padding: 0 6%;
+            flex-wrap: wrap;
+            margin-bottom: 6rem;
+            align-items: flex-start;
+        }
+
+        /* 正方形卡片 */
+        .brunch-card {
+            width: 280px;
+            background: rgba(255, 255, 255, 0.4);
+            border: 1px solid rgba(44, 48, 46, 0.04);
+            text-decoration: none;
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+            position: relative;
+            /* 柔焦微阴影 */
+            box-shadow: 0 8px 32px rgba(44, 48, 46, 0.03);
+            transition: all 0.6s cubic-bezier(0.25, 1, 0.5, 1);
+        }
+
+        /* 高低错落 - 不对称 margin-top */
+        .brunch-card:nth-child(1) { margin-top: 0; }
+        .brunch-card:nth-child(2) { margin-top: 3rem; }
+        .brunch-card:nth-child(3) { margin-top: 1.5rem; }
+
+        .brunch-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle at center, rgba(212, 180, 153, 0.08), transparent 70%);
+            opacity: 0;
+            transition: opacity 0.6s cubic-bezier(0.25, 1, 0.5, 1);
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        .brunch-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 16px 48px rgba(44, 48, 46, 0.06);
+        }
+
+        .brunch-card:hover::before {
+            opacity: 1;
+        }
+
+        /* Hover 时其他卡片变淡 */
+        .brunch-grid:hover .brunch-card {
+            opacity: 0.5;
+        }
+
+        .brunch-grid:hover .brunch-card:hover {
+            opacity: 1;
+        }
+
+        /* 正方形标题图 */
+        .brunch-card-image {
+            width: 100%;
+            aspect-ratio: 1 / 1;
+            overflow: hidden;
+            background: rgba(244, 241, 234, 0.5);
+        }
+
+        .brunch-card-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            opacity: 0.9;
+            filter: sepia(5%) saturate(0.95);
+            transition: all 0.6s cubic-bezier(0.25, 1, 0.5, 1);
+        }
+
+        .brunch-card:hover .brunch-card-image img {
+            opacity: 1;
+            filter: sepia(0%) saturate(1);
+            transform: scale(1.03);
+        }
+
+        /* 卡片内容区 */
+        .brunch-card-content {
+            padding: 1.5rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .brunch-card-title {
+            font-family: 'Noto Serif SC', serif;
+            font-size: 1rem;
+            font-weight: 400;
+            letter-spacing: 0.15em;
+            color: var(--color-text-main);
+            margin-bottom: 0.5rem;
+            line-height: 1.5;
+            transition: color 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+        }
+
+        .brunch-card-date {
+            font-family: 'Inter', -apple-system, sans-serif;
+            font-size: 0.75rem;
+            color: var(--color-mist-blue);
+            letter-spacing: 0.1em;
+            margin-bottom: 1rem;
+            opacity: 0.8;
+        }
+
+        .brunch-card-excerpt {
+            font-family: 'Inter', -apple-system, sans-serif;
+            font-size: 0.85rem;
+            color: var(--color-text-muted);
+            line-height: 1.8;
+            letter-spacing: 0.02em;
+        }
+
+        /* 阅读全文 - 极致优雅的文字排版 */
+        .brunch-card-btn {
+            display: inline-block;
+            font-family: 'Inter', -apple-system, sans-serif;
+            font-size: 0.7rem;
+            font-weight: 400;
+            letter-spacing: 0.25em;
+            text-transform: uppercase;
+            color: var(--color-text-main);
+            background: transparent;
+            border: none;
+            padding: 0;
+            margin-top: 20px;
+            transition: color 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+        }
+
+        .brunch-card-btn::after {
+            content: ' →';
+            display: inline-block;
+            transition: transform 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+        }
+
+        .brunch-card:hover .brunch-card-btn {
+            color: var(--color-forest);
+        }
+
+        .brunch-card:hover .brunch-card-btn::after {
+            transform: translateX(4px);
+        }
+
+        /* Hover 标题变森系绿 */
+        .brunch-card:hover .brunch-card-title {
+            color: var(--color-forest);
+        }
+
+        /* 返回首页链接 */
+        .back-home {
+            position: fixed;
+            bottom: 3rem;
+            left: 50%;
+            transform: translateX(-50%);
+            font-family: 'Inter', -apple-system, sans-serif;
+            font-size: 0.8rem;
+            letter-spacing: 0.2em;
+            color: var(--color-text-muted);
+            text-decoration: none;
+            padding: 0.8rem 2rem;
+            border: 1px solid rgba(44, 48, 46, 0.12);
+            background: rgba(255, 255, 255, 0.6);
+            transition: all 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+        }
+
+        .back-home:hover {
+            background: #FFFFFF;
+            color: var(--color-forest);
+            border-color: var(--color-forest);
+        }
+
+        /* 响应式 */
+        @media (max-width: 900px) {
+            .brunch-grid {
+                gap: 3rem;
+                padding: 0 4%;
+            }
+
+            .brunch-card {
+                width: 240px;
+            }
+
+            .brunch-card:nth-child(1),
+            .brunch-card:nth-child(2),
+            .brunch-card:nth-child(3) {
+                margin-top: 0;
+            }
+        }
+
+        @media (max-width: 600px) {
+            .brunch-card {
+                width: 85vw;
+                max-width: 300px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 顶部悬浮导航栏 -->
+    <nav class="top-nav" style="opacity: 1;">
+        <a href="index.html" class="nav-item">
+            <span class="nav-en">HOME</span>
+            <span class="nav-zh">首页</span>
+        </a>
+        <a href="about.html" class="nav-item">
+            <span class="nav-en">ABOUT ME</span>
+            <span class="nav-zh">关于我</span>
+        </a>
+        <a href="brunch.html" class="nav-item">
+            <span class="nav-en">THE BRUNCH</span>
+            <span class="nav-zh">早午餐</span>
+        </a>
+        <a href="blog.html" class="nav-item">
+            <span class="nav-en">BLOG</span>
+            <span class="nav-zh">博客</span>
+        </a>
+        <a href="photography.html" class="nav-item">
+            <span class="nav-en">PHOTOGRAPHY</span>
+            <span class="nav-zh">摄影</span>
+        </a>
+        <a href="travel.html" class="nav-item">
+            <span class="nav-en">TRAVEL</span>
+            <span class="nav-zh">旅行</span>
+        </a>
+    </nav>
+
+    <!-- Brunch 主内容 -->
+    <main class="brunch-page">
+        <!-- 专栏头部 -->
+        <header class="brunch-header">
+            <h1>THE BRUNCH</h1>
+            <p class="brunch-header-sub">早午餐 / 🌿 烹饪、食物与生活随笔</p>
+        </header>
+
+        <!-- 大面积留白 -->
+        <div class="brunch-intro-space"></div>
+
+        <!-- 文章列表 - 高低错落 -->
+        <section class="brunch-grid">
+            <!-- 文章 1: 烹饪这件小事...吗？ -->
+            <a href="brunch-1.html" class="brunch-card">
+                <div class="brunch-card-image">
+                    <img src="个人网站搭建素材/网站-brunch系列/烹饪这件小事...吗/标题图.jpg" alt="烹饪这件小事">
+                </div>
+                <div class="brunch-card-content">
+                    <h3 class="brunch-card-title">烹饪这件小事...吗？</h3>
+                    <p class="brunch-card-date">2026.7.15</p>
+                    <p class="brunch-card-excerpt">自己做饭，照顾自己的饮食之后，才懂得了一点做饭的珍贵和不易。它首先是繁琐的体力劳动，更是心力的投入...</p>
+                    <span class="brunch-card-btn">阅读全文 →</span>
+                </div>
+            </a>
+
+            <!-- 文章 2: 无题 -->
+            <a href="brunch-2.html" class="brunch-card">
+                <div class="brunch-card-image">
+                    <img src="个人网站搭建素材/网站-brunch系列/无题/标题图.jpg" alt="无题">
+                </div>
+                <div class="brunch-card-content">
+                    <h3 class="brunch-card-title">无题</h3>
+                    <p class="brunch-card-date">2026.6.14</p>
+                    <p class="brunch-card-excerpt">香港很旧，也固执之极。很多店只收现金，他们自有要坚守的道理和生活方式。这样的老与旧，令人心安...</p>
+                    <span class="brunch-card-btn">阅读全文 →</span>
+                </div>
+            </a>
+
+            <!-- 文章 3: 《Hamnet》里的回头 -->
+            <a href="brunch-3.html" class="brunch-card">
+                <div class="brunch-card-image">
+                    <img src="个人网站搭建素材/网站-brunch系列/《哈姆内特》里的回头/标题图也是配图.jpg" alt="《Hamnet》里的回头">
+                </div>
+                <div class="brunch-card-content">
+                    <h3 class="brunch-card-title">《Hamnet》里的回头</h3>
+                    <p class="brunch-card-date">2026</p>
+                    <p class="brunch-card-excerpt">俄耳甫斯前往冥界拯救妻子，这是人类历史上永恒的回头，它镌刻着在世之人的执着...</p>
+                    <span class="brunch-card-btn">阅读全文 →</span>
+                </div>
+            </a>
+        </section>
+    </main>
+
+    <!-- 返回首页 -->
+    <a href="index.html" class="back-home">← Back to Home</a>
+</body>
+</html>

@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Me - 生命花园</title>
+    <link rel="stylesheet" href="生命花园_style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300&family=Noto+Serif+SC:wght@300;400&family=Inter:wght@300;400&display=swap" rel="stylesheet">
+    <style>
+        /* About 页面专属样式 */
+        .about-page {
+            min-height: 100vh;
+            padding-top: 80px;
+        }
+
+        .about-layout {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            min-height: calc(100vh - 80px);
+        }
+
+        /* 左侧文字区 */
+        .about-text-side {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            padding: 4rem 6rem;
+            background: var(--color-bg);
+        }
+
+        .about-intro {
+            max-width: 480px;
+        }
+
+        .about-intro p {
+            font-family: 'Noto Serif SC', serif;
+            font-size: 1.1rem;
+            font-weight: 300;
+            line-height: 2.4;
+            color: var(--color-text-muted);
+            letter-spacing: 0.15em;
+            margin-bottom: 2rem;
+        }
+
+        /* 右侧照片区 */
+        .about-image-side {
+            position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 3rem;
+            /* Syotatsu 微光 */
+            background-image: radial-gradient(circle at center, rgba(212, 180, 153, 0.08), transparent 70%);
+        }
+
+        .about-image-side img {
+            max-width: 550px;
+            max-height: 85vh;
+            width: auto;
+            height: auto;
+            object-fit: contain;
+            opacity: 0.92;
+            filter: sepia(6%) saturate(0.95);
+            box-shadow: 0 12px 40px rgba(44, 48, 46, 0.08);
+        }
+
+        /* 返回首页链接 */
+        .back-home {
+            position: fixed;
+            bottom: 3rem;
+            left: 50%;
+            transform: translateX(-50%);
+            font-family: 'Inter', -apple-system, sans-serif;
+            font-size: 0.8rem;
+            letter-spacing: 0.2em;
+            color: var(--color-text-muted);
+            text-decoration: none;
+            padding: 0.8rem 2rem;
+            border: 1px solid rgba(44, 48, 46, 0.12);
+            background: rgba(255, 255, 255, 0.6);
+            transition: all 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+        }
+
+        .back-home:hover {
+            background: #FFFFFF;
+            color: var(--color-forest);
+            border-color: var(--color-forest);
+        }
+
+        /* 响应式 */
+        @media (max-width: 900px) {
+            .about-layout {
+                grid-template-columns: 1fr;
+            }
+
+            .about-text-side {
+                padding: 3rem 2rem;
+                order: 2;
+            }
+
+            .about-image-side {
+                min-height: 50vh;
+                order: 1;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 顶部悬浮导航栏 - 双语 -->
+    <nav class="top-nav" style="opacity: 1;">
+        <a href="index.html" class="nav-item">
+            <span class="nav-en">HOME</span>
+            <span class="nav-zh">首页</span>
+        </a>
+        <a href="about.html" class="nav-item">
+            <span class="nav-en">ABOUT ME</span>
+            <span class="nav-zh">关于我</span>
+        </a>
+        <a href="fiction.html" class="nav-item">
+            <span class="nav-en">FICTION</span>
+            <span class="nav-zh">虚构</span>
+        </a>
+        <a href="brunch.html" class="nav-item">
+            <span class="nav-en">THE BRUNCH</span>
+            <span class="nav-zh">早午餐</span>
+        </a>
+        <a href="blog.html" class="nav-item">
+            <span class="nav-en">BLOG</span>
+            <span class="nav-zh">博客</span>
+        </a>
+        <a href="photography.html" class="nav-item">
+            <span class="nav-en">PHOTOGRAPHY</span>
+            <span class="nav-zh">摄影</span>
+        </a>
+        <a href="travel.html" class="nav-item">
+            <span class="nav-en">TRAVEL</span>
+            <span class="nav-zh">旅行</span>
+        </a>
+    </nav>
+
+    <!-- About 主内容 -->
+    <main class="about-page">
+        <div class="about-layout">
+            <!-- 左侧：纯中文诗意句子 -->
+            <section class="about-text-side">
+                <div class="about-intro">
+                    <p>一个用文字与影像感受生活的人。</p>
+                    <p>地方，文化，历史如何塑造我们，又如何影响我们看待世界以及讲述故事的方式？</p>
+                    <p>生命经验在不停流转，而我对自己仍然有多少未知的觉察？</p>
+                    <p>这世间一切的一切都深深激发了我的好奇心。</p>
+                </div>
+            </section>
+
+            <!-- 右侧：个人照片 -->
+            <section class="about-image-side">
+                <img src="个人网站搭建素材/about me 照片.jpg" alt="Me">
+            </section>
+        </div>
+    </main>
+
+    <!-- 返回首页 -->
+    <a href="index.html" class="back-home">← Back to Home</a>
+</body>
+</html>

@@ -1,0 +1,444 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PHOTOGRAPHY / 摄影 - 生命花园</title>
+    <link rel="stylesheet" href="生命花园_style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300&family=Noto+Serif+SC:wght@300;400&family=Inter:wght@300;400&display=swap" rel="stylesheet">
+    <style>
+        /* ========================================
+           Photography 页面专属样式
+           高审美画廊感·沉浸式灯箱
+           ======================================== */
+
+        /* 页面主体 */
+        .photo-page {
+            min-height: 100vh;
+            background-color: var(--color-bg); /* 燕麥淺米色 #F4F1EA */
+            padding-top: 80px;
+        }
+
+        /* 页面头部 */
+        .photo-header {
+            padding: 6rem 8% 3rem;
+            text-align: center;
+        }
+
+        .photo-header-en {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 2.2rem;
+            font-weight: 300;
+            letter-spacing: 0.4em;
+            color: var(--color-text-main);
+            margin-bottom: 0.5rem;
+        }
+
+        .photo-header-zh {
+            font-family: 'Noto Serif SC', serif;
+            font-size: 1rem;
+            font-weight: 300;
+            letter-spacing: 0.3em;
+            color: var(--color-mist-blue);
+            opacity: 0.8;
+        }
+
+        /* 画廊网格容器 */
+        .gallery-container {
+            padding: 0 8% 8rem;
+        }
+
+        /* 杂志感整齐网格 */
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 60px; /* 充满空气感的留白 */
+        }
+
+        /* 单张图片容器 */
+        .gallery-item {
+            position: relative;
+            cursor: pointer;
+            transition: transform 0.5s cubic-bezier(0.25, 1, 0.5, 1),
+                        box-shadow 0.5s cubic-bezier(0.25, 1, 0.5, 1);
+        }
+
+        /* 图片本身 - 百分之百原色，无滤镜 */
+        .gallery-item img {
+            width: 100%;
+            height: 280px;
+            display: block;
+            object-fit: cover;
+            /* 关键：拒绝任何滤镜，100%高保真 */
+            filter: none;
+            opacity: 1;
+            transition: transform 0.5s cubic-bezier(0.25, 1, 0.5, 1);
+        }
+
+        /* Hover效果 - 只有微调放大和柔焦阴影 */
+        .gallery-item:hover {
+            transform: scale(1.02);
+            box-shadow: 0 24px 64px rgba(44, 48, 46, 0.12),
+                        0 8px 24px rgba(44, 48, 46, 0.08);
+            z-index: 10;
+        }
+
+        /* 图片标注 */
+        .gallery-caption {
+            font-family: 'Cormorant Garamond', 'Noto Serif SC', serif;
+            font-size: 0.75rem;
+            font-weight: 300;
+            letter-spacing: 0.15em;
+            color: var(--color-text-muted);
+            margin-top: 1rem;
+            opacity: 0.7;
+            transition: opacity 0.4s ease;
+        }
+
+        .gallery-item:hover .gallery-caption {
+            opacity: 1;
+        }
+
+        /* ========================================
+           沉浸式画廊灯箱
+           ======================================== */
+        .lightbox-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            /* 灰绿调半透明软黑，非刺眼纯黑 */
+            background: rgba(20, 24, 20, 0.85);
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.5s cubic-bezier(0.25, 1, 0.5, 1),
+                        visibility 0.5s cubic-bezier(0.25, 1, 0.5, 1);
+        }
+
+        .lightbox-overlay.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        /* 灯箱中的图片 - 无滤镜 */
+        .lightbox-image {
+            max-width: 90vw;
+            max-height: 90vh;
+            object-fit: contain;
+            filter: none;
+            box-shadow: 0 40px 100px rgba(0, 0, 0, 0.3),
+                        0 20px 60px rgba(20, 24, 20, 0.2);
+            transform: scale(0.9);
+            transition: transform 0.5s cubic-bezier(0.25, 1, 0.5, 1);
+        }
+
+        .lightbox-overlay.active .lightbox-image {
+            transform: scale(1);
+        }
+
+        /* 关闭按钮 */
+        .lightbox-close {
+            position: absolute;
+            top: 2rem;
+            right: 2.5rem;
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 2rem;
+            color: rgba(244, 241, 234, 0.7);
+            cursor: pointer;
+            transition: color 0.3s ease, transform 0.3s ease;
+            z-index: 1001;
+            line-height: 1;
+        }
+
+        .lightbox-close:hover {
+            color: rgba(244, 241, 234, 1);
+            transform: rotate(90deg);
+        }
+
+        /* 灯箱图片信息 */
+        .lightbox-info {
+            position: absolute;
+            bottom: 2.5rem;
+            left: 50%;
+            transform: translateX(-50%);
+            text-align: center;
+            font-family: 'Cormorant Garamond', 'Noto Serif SC', serif;
+            color: rgba(244, 241, 234, 0.8);
+            letter-spacing: 0.2em;
+        }
+
+        .lightbox-title {
+            font-size: 1rem;
+            font-weight: 300;
+            margin-bottom: 0.3rem;
+        }
+
+        .lightbox-date {
+            font-size: 0.8rem;
+            opacity: 0.7;
+        }
+
+        /* ========================================
+           响应式设计
+           ======================================== */
+        @media (max-width: 1200px) {
+            .gallery-grid {
+                grid-template-columns: repeat(3, 1fr);
+                gap: 50px;
+            }
+        }
+
+        @media (max-width: 900px) {
+            .gallery-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 40px;
+            }
+
+            .photo-header {
+                padding: 4rem 5% 2rem;
+            }
+
+            .gallery-container {
+                padding: 0 5% 6rem;
+            }
+        }
+
+        @media (max-width: 600px) {
+            .gallery-grid {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+
+            .photo-header-en {
+                font-size: 1.6rem;
+            }
+
+            .lightbox-close {
+                top: 1.5rem;
+                right: 1.5rem;
+                font-size: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 顶部悬浮导航栏 -->
+    <nav class="top-nav">
+        <a href="index.html" class="nav-item">
+            <span class="nav-en">HOME</span>
+            <span class="nav-zh">首页</span>
+        </a>
+        <a href="about.html" class="nav-item">
+            <span class="nav-en">ABOUT ME</span>
+            <span class="nav-zh">关于我</span>
+        </a>
+        <a href="fiction.html" class="nav-item">
+            <span class="nav-en">FICTION</span>
+            <span class="nav-zh">虚构</span>
+        </a>
+        <a href="brunch.html" class="nav-item">
+            <span class="nav-en">THE BRUNCH</span>
+            <span class="nav-zh">早午餐</span>
+        </a>
+        <a href="blog.html" class="nav-item">
+            <span class="nav-en">BLOG</span>
+            <span class="nav-zh">博客</span>
+        </a>
+        <a href="photography.html" class="nav-item" style="opacity: 1;">
+            <span class="nav-en" style="color: var(--color-forest);">PHOTOGRAPHY</span>
+            <span class="nav-zh" style="opacity: 1; transform: translateY(0);">摄影</span>
+        </a>
+        <a href="travel.html" class="nav-item">
+            <span class="nav-en">TRAVEL</span>
+            <span class="nav-zh">旅行</span>
+        </a>
+    </nav>
+
+    <!-- 摄影页面主体 -->
+    <div class="photo-page">
+        <!-- 页面头部 -->
+        <header class="photo-header">
+            <h1 class="photo-header-en">PHOTOGRAPHY</h1>
+            <p class="photo-header-zh">摄影</p>
+        </header>
+
+        <!-- 画廊网格 -->
+        <div class="gallery-container">
+            <div class="gallery-grid">
+                <!-- 2025.5.8 东京 -->
+                <div class="gallery-item" onclick="openLightbox(this)">
+                    <img src="images/东京 2025.5.8.jpg" alt="东京 2025" loading="lazy">
+                    <p class="gallery-caption">TOKYO, MAY 2025</p>
+                </div>
+
+                <!-- 2025.8.29 香港坚尼地城 -->
+                <div class="gallery-item" onclick="openLightbox(this)">
+                    <img src="images/香港 坚尼地城 2025.8.29.jpg" alt="香港 坚尼地城 2025" loading="lazy">
+                    <p class="gallery-caption">HONG KONG · KENNEDY TOWN, AUG 2025</p>
+                </div>
+
+                <!-- 2025.10.14 香港西营盘 -->
+                <div class="gallery-item" onclick="openLightbox(this)">
+                    <img src="images/香港 西营盘 2025.10.14.jpg" alt="香港 西营盘 2025" loading="lazy">
+                    <p class="gallery-caption">HONG KONG · SAI YING PUN, OCT 2025</p>
+                </div>
+
+                <!-- 2025.12.22 英国剑桥 -->
+                <div class="gallery-item" onclick="openLightbox(this)">
+                    <img src="images/英国 剑桥 2025.12.22.jpg" alt="英国 剑桥 2025" loading="lazy">
+                    <p class="gallery-caption">CAMBRIDGE, DEC 2025</p>
+                </div>
+
+                <!-- 2025.12.22 英国剑桥（备选） -->
+                <div class="gallery-item" onclick="openLightbox(this)">
+                    <img src="images/英国剑桥2025.12.22.JPG" alt="英国 剑桥 2025" loading="lazy">
+                    <p class="gallery-caption">CAMBRIDGE, DEC 2025</p>
+                </div>
+
+                <!-- 2025.12.28 英国伦敦 -->
+                <div class="gallery-item" onclick="openLightbox(this)">
+                    <img src="images/英国 伦敦 2025.12.28.JPG" alt="英国 伦敦 2025" loading="lazy">
+                    <p class="gallery-caption">LONDON, DEC 2025</p>
+                </div>
+
+                <!-- 2026.1.2 英国牛津 -->
+                <div class="gallery-item" onclick="openLightbox(this)">
+                    <img src="images/英国 牛津 2026.1.2.jpg" alt="英国 牛津 2026" loading="lazy">
+                    <p class="gallery-caption">OXFORD, JAN 2026</p>
+                </div>
+
+                <!-- 2026.1.4 英国爱丁堡 -->
+                <div class="gallery-item" onclick="openLightbox(this)">
+                    <img src="images/英国 爱丁堡 2026.1.4.jpg" alt="英国 爱丁堡 2026" loading="lazy">
+                    <p class="gallery-caption">EDINBURGH, JAN 2026</p>
+                </div>
+
+                <!-- 2026.1.4 英国爱丁堡（2） -->
+                <div class="gallery-item" onclick="openLightbox(this)">
+                    <img src="images/英国 爱丁堡 2026.1.4（2）.jpg" alt="英国 爱丁堡 2026" loading="lazy">
+                    <p class="gallery-caption">EDINBURGH, JAN 2026</p>
+                </div>
+
+                <!-- 2026.1.4 英国爱丁堡（3） -->
+                <div class="gallery-item" onclick="openLightbox(this)">
+                    <img src="images/英国 爱丁堡 2026.1.4（3）.jpg" alt="英国 爱丁堡 2026" loading="lazy">
+                    <p class="gallery-caption">EDINBURGH, JAN 2026</p>
+                </div>
+
+                <!-- 2026.1.16 香港上环挥春 -->
+                <div class="gallery-item" onclick="openLightbox(this)">
+                    <img src="images/香港 上环 挥春 2026.1.16.jpg" alt="香港 上环 挥春 2026" loading="lazy">
+                    <p class="gallery-caption">HONG KONG · SHEUNG WAN, JAN 2026</p>
+                </div>
+
+                <!-- 2026.2.4 四川乡村 -->
+                <div class="gallery-item" onclick="openLightbox(this)">
+                    <img src="images/四川 乡村 2026.2.4.jpg" alt="四川 乡村 2026" loading="lazy">
+                    <p class="gallery-caption">SICHUAN · COUNTRYSIDE, FEB 2026</p>
+                </div>
+
+                <!-- 2026.2.13 香港上环文武庙 -->
+                <div class="gallery-item" onclick="openLightbox(this)">
+                    <img src="images/香港 上环文武庙 2026.2.13.jpg" alt="香港 上环文武庙 2026" loading="lazy">
+                    <p class="gallery-caption">MAN MO TEMPLE, FEB 2026</p>
+                </div>
+
+                <!-- 2026.2.13 香港上环文武庙（2） -->
+                <div class="gallery-item" onclick="openLightbox(this)">
+                    <img src="images/香港 上环文武庙 2026.2.13（2）.jpg" alt="香港 上环文武庙 2026" loading="lazy">
+                    <p class="gallery-caption">MAN MO TEMPLE, FEB 2026</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- 终章落款 -->
+        <footer class="footer">
+            <div class="footer-signature">
+                <p class="footer-line">此致</p>
+                <p class="footer-name">y</p>
+            </div>
+        </footer>
+    </div>
+
+    <!-- 灯箱遮罩层 -->
+    <div class="lightbox-overlay" id="lightbox" onclick="closeLightbox(event)">
+        <span class="lightbox-close" onclick="closeLightbox(event)">×</span>
+        <img class="lightbox-image" id="lightbox-img" src="" alt="">
+        <div class="lightbox-info">
+            <p class="lightbox-title" id="lightbox-title"></p>
+            <p class="lightbox-date" id="lightbox-date"></p>
+        </div>
+    </div>
+
+    <!-- JavaScript - 灯箱交互 -->
+    <script>
+        // 打开灯箱
+        function openLightbox(item) {
+            const img = item.querySelector('img');
+            const caption = item.querySelector('.gallery-caption');
+            const lightbox = document.getElementById('lightbox');
+            const lightboxImg = document.getElementById('lightbox-img');
+            const lightboxTitle = document.getElementById('lightbox-title');
+
+            // 设置灯箱图片
+            lightboxImg.src = img.src;
+            lightboxImg.alt = img.alt;
+            lightboxTitle.textContent = caption.textContent;
+
+            // 显示灯箱
+            lightbox.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+
+        // 关闭灯箱
+        function closeLightbox(event) {
+            // 如果点击的是图片本身，不关闭
+            if (event.target.classList.contains('lightbox-image')) {
+                return;
+            }
+
+            const lightbox = document.getElementById('lightbox');
+            lightbox.classList.remove('active');
+            document.body.style.overflow = '';
+        }
+
+        // 按 ESC 键关闭灯箱
+        document.addEventListener('keydown', function(event) {
+            if (event.key === 'Escape') {
+                const lightbox = document.getElementById('lightbox');
+                if (lightbox.classList.contains('active')) {
+                    lightbox.classList.remove('active');
+                    document.body.style.overflow = '';
+                }
+            }
+        });
+
+        // 导航栏悬停显示中文
+        const navItems = document.querySelectorAll('.nav-item');
+        navItems.forEach(item => {
+            item.addEventListener('mouseenter', function() {
+                const zh = this.querySelector('.nav-zh');
+                if (zh) {
+                    zh.style.opacity = '1';
+                    zh.style.transform = 'translateY(0)';
+                }
+            });
+            item.addEventListener('mouseleave', function() {
+                const zh = this.querySelector('.nav-zh');
+                // 保持当前页面的中文显示
+                if (this.getAttribute('href') !== 'photography.html' && zh) {
+                    zh.style.opacity = '0';
+                    zh.style.transform = 'translateY(-4px)';
+                }
+            });
+        });
+    </script>
+</body>
+</html>

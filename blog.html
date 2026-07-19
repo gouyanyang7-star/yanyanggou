@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BLOG - 生命花园</title>
+    <link rel="stylesheet" href="生命花园_style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@300;400;500&family=Inter:wght@300;400&display=swap" rel="stylesheet">
+    <style>
+        /* ========================================
+           BLOG 页面 - 杂志级错落布局
+           ======================================== */
+
+        /* 彻底清除所有超链接样式 */
+        a {
+            text-decoration: none !important;
+            color: inherit !important;
+        }
+
+        .blog-page {
+            min-height: 100vh;
+            padding-top: 80px;
+            background-color: var(--color-bg);
+        }
+
+        /* ========================================
+           顶部板块大标题区
+           ======================================== */
+        .blog-header {
+            text-align: center;
+            padding: 5rem 2rem 0;
+        }
+
+        .blog-header-title {
+            font-family: 'Noto Serif SC', serif;
+            font-size: 3rem;
+            font-weight: 400;
+            letter-spacing: 0.5em;
+            color: var(--color-text-main);
+            margin-bottom: 1.5rem;
+        }
+
+        .blog-header-subtitle {
+            font-family: 'Noto Serif SC', serif;
+            font-size: 1.1rem;
+            font-weight: 300;
+            letter-spacing: 0.3em;
+            color: var(--color-text-muted);
+        }
+
+        /* 巨大物理留白 */
+        .blog-header-space {
+            height: 100px;
+        }
+
+        /* ========================================
+           文章列表流 - 画廊式错落呈现
+           ======================================== */
+        .blog-articles {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 5%;
+        }
+
+        /* 单篇文章单元 - 左右分栏 */
+        .blog-article-block {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            min-height: 70vh;
+            margin-bottom: 150px;
+            background: transparent;
+        }
+
+        /* 最后一个文章单元减少底部间距 */
+        .blog-article-block:last-child {
+            margin-bottom: 80px;
+        }
+
+        /* 左侧文字区 */
+        .blog-article-text {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            padding: 3rem 4rem;
+            text-decoration: none;
+            transition: all 0.5s cubic-bezier(0.25, 1, 0.5, 1);
+        }
+
+        /* 分类标签 */
+        .blog-article-category {
+            font-family: 'Noto Serif SC', serif;
+            font-size: 0.75rem;
+            font-weight: 400;
+            letter-spacing: 0.35em;
+            color: #8B4513;
+            margin-bottom: 2rem;
+            opacity: 0.85;
+        }
+
+        /* 文章标题 */
+        .blog-article-title {
+            font-family: 'Noto Serif SC', serif;
+            font-size: 2.2rem;
+            font-weight: 500;
+            letter-spacing: 0.1em;
+            color: var(--color-text-main);
+            line-height: 1.5;
+            margin-bottom: 1.5rem;
+            transition: color 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+        }
+
+        /* 文章概览 */
+        .blog-article-excerpt {
+            font-family: 'Noto Serif SC', serif;
+            font-size: 1rem;
+            font-weight: 300;
+            line-height: 2.2;
+            color: #5a5d5a;
+            letter-spacing: 0.05em;
+            margin-bottom: 1.5rem;
+        }
+
+        /* 阅读全文 - 极致优雅的文字排版 */
+        .blog-article-btn {
+            display: inline-block;
+            font-family: 'Inter', sans-serif;
+            font-size: 0.75rem;
+            font-weight: 400;
+            letter-spacing: 0.25em;
+            text-transform: uppercase;
+            color: var(--color-text-main);
+            background: transparent;
+            border: none;
+            padding: 0;
+            margin-top: 24px;
+            transition: color 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+        }
+
+        .blog-article-btn::after {
+            content: ' →';
+            display: inline-block;
+            transition: transform 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+        }
+
+        .blog-article-block:hover .blog-article-btn {
+            color: var(--color-forest);
+        }
+
+        .blog-article-block:hover .blog-article-btn::after {
+            transform: translateX(4px);
+        }
+
+        /* 右侧巨幅图片区 */
+        .blog-article-image {
+            overflow: hidden;
+            position: relative;
+        }
+
+        .blog-article-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            filter: sepia(6%) saturate(0.92);
+            transition: all 0.6s cubic-bezier(0.25, 1, 0.5, 1);
+        }
+
+        /* Hover 效果 */
+        .blog-article-block:hover .blog-article-title {
+            color: var(--color-forest);
+        }
+
+        .blog-article-block:hover .blog-article-image img {
+            transform: scale(1.02);
+            filter: sepia(0%) saturate(1);
+        }
+
+        /* ========================================
+           交替布局：偶数文章左图右文
+           ======================================== */
+        .blog-article-block--reverse {
+            grid-template-columns: 1fr 1fr;
+        }
+
+        .blog-article-block--reverse .blog-article-text {
+            order: 2;
+        }
+
+        .blog-article-block--reverse .blog-article-image {
+            order: 1;
+        }
+
+        /* ========================================
+           返回首页链接
+           ======================================== */
+        .back-home {
+            position: fixed;
+            bottom: 3rem;
+            left: 50%;
+            transform: translateX(-50%);
+            font-family: 'Inter', sans-serif;
+            font-size: 0.8rem;
+            letter-spacing: 0.2em;
+            color: var(--color-text-muted);
+            text-decoration: none;
+            padding: 0.8rem 2rem;
+            border: 1px solid rgba(44, 48, 46, 0.12);
+            background: rgba(255, 255, 255, 0.6);
+            transition: all 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+            z-index: 100;
+        }
+
+        .back-home:hover {
+            background: #FFFFFF;
+            color: var(--color-forest);
+            border-color: var(--color-forest);
+        }
+
+        /* ========================================
+           响应式设计
+           ======================================== */
+        @media (max-width: 900px) {
+            .blog-article-block,
+            .blog-article-block--reverse {
+                grid-template-columns: 1fr;
+                min-height: auto;
+                margin-bottom: 100px;
+            }
+
+            .blog-article-text {
+                padding: 2.5rem 2rem;
+                order: 2 !important;
+            }
+
+            .blog-article-image {
+                height: 280px;
+                order: 1 !important;
+            }
+
+            .blog-article-title {
+                font-size: 1.6rem;
+            }
+
+            .blog-header-title {
+                font-size: 2.2rem;
+                letter-spacing: 0.3em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 顶部悬浮导航栏 -->
+    <nav class="top-nav" style="opacity: 1;">
+        <a href="index.html" class="nav-item"><span class="nav-en">HOME</span><span class="nav-zh">首页</span></a>
+        <a href="about.html" class="nav-item"><span class="nav-en">ABOUT ME</span><span class="nav-zh">关于我</span></a>
+        <a href="brunch.html" class="nav-item"><span class="nav-en">THE BRUNCH</span><span class="nav-zh">早午餐</span></a>
+        <a href="blog.html" class="nav-item"><span class="nav-en">BLOG</span><span class="nav-zh">博客</span></a>
+        <a href="photography.html" class="nav-item"><span class="nav-en">PHOTOGRAPHY</span><span class="nav-zh">摄影</span></a>
+        <a href="travel.html" class="nav-item"><span class="nav-en">TRAVEL</span><span class="nav-zh">旅行</span></a>
+    </nav>
+
+    <!-- Blog 主内容 -->
+    <main class="blog-page">
+
+        <!-- 顶部板块大标题区 -->
+        <header class="blog-header">
+            <h1 class="blog-header-title">BLOG</h1>
+            <p class="blog-header-subtitle">我在思考什么</p>
+        </header>
+
+        <!-- 100px 巨大物理留白 -->
+        <div class="blog-header-space"></div>
+
+        <!-- 文章列表流 -->
+        <section class="blog-articles">
+
+            <!-- 文章 1: 张爱玲的牙牌签（置顶） -->
+            <a href="blog-1.html" class="blog-article-block">
+                <div class="blog-article-text">
+                    <p class="blog-article-category">我在思考什么</p>
+                    <h2 class="blog-article-title">张爱玲的牙牌签——预言、占卜与因果</h2>
+                    <p class="blog-article-excerpt">看似毫不相关的物却预言着生离死别，这是无常。张爱玲对占卜的兴趣早在年少时已经显现出来，年仅17岁便可以捕捉不同人的性格，在如同蛛丝一样的细节里自然地感知和好奇其命运的走向，这是一个天才作家的直觉。</p>
+                    <span class="blog-article-btn">阅读全文 →</span>
+                </div>
+                <div class="blog-article-image">
+                    <img src="个人网站搭建素材/网站-博客系列/张爱玲/标题图.jpg" alt="张爱玲的牙牌签">
+                </div>
+            </a>
+
+            <!-- 文章 2: AI时代不能回避的问题？ -->
+            <a href="blog-2.html" class="blog-article-block blog-article-block--reverse">
+                <div class="blog-article-text">
+                    <p class="blog-article-category">我在思考什么</p>
+                    <h2 class="blog-article-title">AI时代不能回避的问题？</h2>
+                    <p class="blog-article-excerpt">一个人不能和一个人类知识的集合对抗，然而……AI多大程度上能取代人呢？它或许可以取代人的功能性，但无法取代人类。AI能处理的东西，终究是人类已经以某种方式符号化了的东西。</p>
+                    <span class="blog-article-btn">阅读全文 →</span>
+                </div>
+                <div class="blog-article-image">
+                    <img src="个人网站搭建素材/网站-博客系列/ai/ai时代配图也是标题图.jpg" alt="AI时代不能回避的问题">
+                </div>
+            </a>
+
+            <!-- 文章 3: 《甜蜜蜜》：爱情之外 -->
+            <a href="blog-3.html" class="blog-article-block">
+                <div class="blog-article-text">
+                    <p class="blog-article-category">我在思考什么</p>
+                    <h2 class="blog-article-title">《甜蜜蜜》：爱情之外</h2>
+                    <p class="blog-article-excerpt">都市的魅力正在于此，它适合两颗心短暂相逢又匆匆，适合不能迎接明天的情感在曲巷里藏身，也适合沦落天涯的人再度重逢。这是华语电影史上经典的一幕，也可以说，这是现代爱情最动人的一面。</p>
+                    <span class="blog-article-btn">阅读全文 →</span>
+                </div>
+                <div class="blog-article-image">
+                    <img src="个人网站搭建素材/网站-博客系列/《甜蜜蜜》/甜蜜蜜标题图.jpg" alt="《甜蜜蜜》：爱情之外">
+                </div>
+            </a>
+
+            <!-- 文章 4: 曹丕的"红楼"境界 -->
+            <a href="blog-4.html" class="blog-article-block blog-article-block--reverse">
+                <div class="blog-article-text">
+                    <p class="blog-article-category">我在思考什么</p>
+                    <h2 class="blog-article-title">曹丕的"红楼"境界</h2>
+                    <p class="blog-article-excerpt">我们看他快乐的时候，与人结伴游于山水，宴席之上瓜果相掷，丝竹不歇；锻铸宝剑流光四溢……物质的丰盈带来极大的喜悦，然而却转瞬成悲。因为它们都是暂时性的。当隐约窥得世界之外还有境界，尘世的一切就皆为"假象"。</p>
+                    <span class="blog-article-btn">阅读全文 →</span>
+                </div>
+                <div class="blog-article-image">
+                    <img src="个人网站搭建素材/网站-博客系列/曹丕/曹丕博客标题图.jpg" alt="曹丕的"红楼"境界">
+                </div>
+            </a>
+
+        </section>
+    </main>
+
+    <!-- 返回首页 -->
+    <a href="index.html" class="back-home">← Back to Home</a>
+</body>
+</html>

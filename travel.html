@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TRAVEL / 旅行 - 生命花园</title>
+    <link rel="stylesheet" href="生命花园_style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300&family=Noto+Serif+SC:wght@300;400&family=Inter:wght@300;400&display=swap" rel="stylesheet">
+    <style>
+        .travel-page {
+            min-height: 100vh;
+            background-color: var(--color-bg);
+            padding-top: 80px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .travel-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .travel-header-en {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 2.2rem;
+            font-weight: 300;
+            letter-spacing: 0.4em;
+            color: var(--color-text-main);
+            margin-bottom: 0.5rem;
+        }
+
+        .travel-header-zh {
+            font-family: 'Noto Serif SC', serif;
+            font-size: 1rem;
+            font-weight: 300;
+            letter-spacing: 0.3em;
+            color: var(--color-mist-blue);
+            opacity: 0.8;
+        }
+
+        .coming-card {
+            background: rgba(255, 255, 255, 0.4);
+            border: 1px solid rgba(44, 48, 46, 0.04);
+            padding: 4rem 5rem;
+            text-align: center;
+            box-shadow: 0 8px 32px rgba(44, 48, 46, 0.03);
+        }
+
+        .coming-text {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1rem;
+            font-weight: 300;
+            letter-spacing: 0.25em;
+            color: var(--color-mist-blue);
+            opacity: 0.7;
+        }
+    </style>
+</head>
+<body>
+    <!-- 顶部悬浮导航栏 -->
+    <nav class="top-nav">
+        <a href="index.html" class="nav-item">
+            <span class="nav-en">HOME</span>
+            <span class="nav-zh">首页</span>
+        </a>
+        <a href="about.html" class="nav-item">
+            <span class="nav-en">ABOUT ME</span>
+            <span class="nav-zh">关于我</span>
+        </a>
+        <a href="fiction.html" class="nav-item">
+            <span class="nav-en">FICTION</span>
+            <span class="nav-zh">虚构</span>
+        </a>
+        <a href="brunch.html" class="nav-item">
+            <span class="nav-en">THE BRUNCH</span>
+            <span class="nav-zh">早午餐</span>
+        </a>
+        <a href="blog.html" class="nav-item">
+            <span class="nav-en">BLOG</span>
+            <span class="nav-zh">博客</span>
+        </a>
+        <a href="photography.html" class="nav-item">
+            <span class="nav-en">PHOTOGRAPHY</span>
+            <span class="nav-zh">摄影</span>
+        </a>
+        <a href="travel.html" class="nav-item" style="opacity: 1;">
+            <span class="nav-en" style="color: var(--color-forest);">TRAVEL</span>
+            <span class="nav-zh" style="opacity: 1; transform: translateY(0);">旅行</span>
+        </a>
+    </nav>
+
+    <!-- 旅行页面 -->
+    <main class="travel-page">
+        <header class="travel-header">
+            <h1 class="travel-header-en">TRAVEL</h1>
+            <p class="travel-header-zh">旅行</p>
+        </header>
+
+        <div class="coming-card">
+            <p class="coming-text">敬请期待 · Coming Soon</p>
+        </div>
+    </main>
+
+    <!-- 终章落款 -->
+    <footer class="footer">
+        <div class="footer-signature">
+            <p class="footer-line">此致</p>
+            <p class="footer-name">y</p>
+        </div>
+    </footer>
+</body>
+</html>

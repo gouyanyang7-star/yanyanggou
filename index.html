@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>生命花园</title>
+    <link rel="stylesheet" href="生命花园_style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300&family=Noto+Serif+SC:wght@300;400&family=Inter:wght@300;400&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Enter 入口界面 -->
+    <div id="enter-screen" class="enter-screen">
+        <div class="enter-content">
+            <p class="enter-text">在虚构和现实的边缘生活</p>
+            <button id="enter-btn" class="enter-btn">Enter / 入园 ➔</button>
+        </div>
+    </div>
+
+    <!-- HOME 主页面 -->
+    <div id="home-page" class="home-page">
+        <!-- 顶部悬浮导航栏 - 双语 -->
+        <nav class="top-nav">
+            <a href="index.html" class="nav-item">
+                <span class="nav-en">HOME</span>
+                <span class="nav-zh">首页</span>
+            </a>
+            <a href="about.html" class="nav-item">
+                <span class="nav-en">ABOUT ME</span>
+                <span class="nav-zh">关于我</span>
+            </a>
+            <a href="fiction.html" class="nav-item">
+                <span class="nav-en">FICTION</span>
+                <span class="nav-zh">虚构</span>
+            </a>
+            <a href="brunch.html" class="nav-item">
+                <span class="nav-en">THE BRUNCH</span>
+                <span class="nav-zh">早午餐</span>
+            </a>
+            <a href="blog.html" class="nav-item">
+                <span class="nav-en">BLOG</span>
+                <span class="nav-zh">博客</span>
+            </a>
+            <a href="photography.html" class="nav-item">
+                <span class="nav-en">PHOTOGRAPHY</span>
+                <span class="nav-zh">摄影</span>
+            </a>
+            <a href="travel.html" class="nav-item">
+                <span class="nav-en">TRAVEL</span>
+                <span class="nav-zh">旅行</span>
+            </a>
+        </nav>
+
+        <!-- HOME 导览区 - 极致错落纯文字布局 -->
+        <section class="home-cover-section">
+            <div class="home-cover-grid">
+                <!-- 关于我 - 大方框 -->
+                <a href="about.html" class="cover-box cover-box--about">
+                    <span class="cover-number">01</span>
+                    <h2 class="cover-title-en">ABOUT ME</h2>
+                    <p class="cover-title-zh">关于我</p>
+                </a>
+
+                <!-- 摄影 - 中方框 -->
+                <a href="photography.html" class="cover-box cover-box--photo">
+                    <span class="cover-number">02</span>
+                    <h2 class="cover-title-en">PHOTOGRAPHY</h2>
+                    <p class="cover-title-zh">摄影</p>
+                </a>
+
+                <!-- 虚构 - 中方框 -->
+                <a href="fiction.html" class="cover-box cover-box--fiction">
+                    <span class="cover-number">03</span>
+                    <h2 class="cover-title-en">FICTION</h2>
+                    <p class="cover-title-zh">虚构</p>
+                    <span class="cover-tag">Coming Soon</span>
+                </a>
+
+                <!-- 博客 - 中方框 -->
+                <a href="blog.html" class="cover-box cover-box--blog">
+                    <span class="cover-number">04</span>
+                    <h2 class="cover-title-en">BLOG</h2>
+                    <p class="cover-title-zh">博客</p>
+                </a>
+
+                <!-- The Brunch - 大方框 -->
+                <a href="brunch.html" class="cover-box cover-box--brunch">
+                    <span class="cover-number">05</span>
+                    <h2 class="cover-title-en">THE BRUNCH</h2>
+                    <p class="cover-title-zh">早午餐</p>
+                </a>
+
+                <!-- 旅行 - 小方框 -->
+                <a href="travel.html" class="cover-box cover-box--travel">
+                    <span class="cover-number">06</span>
+                    <h2 class="cover-title-en">TRAVEL</h2>
+                    <p class="cover-title-zh">旅行</p>
+                    <span class="cover-tag">Coming Soon</span>
+                </a>
+            </div>
+        </section>
+
+        <!-- 留言板 - 极简优雅 -->
+        <section class="guestbook-home-section">
+            <div class="guestbook-home-container">
+                <h3 class="guestbook-home-title">留言板</h3>
+                <div class="guestbook-home-input-wrapper">
+                    <input type="text" id="home-message-input" class="guestbook-home-input" placeholder="写下你想说的话...">
+                    <span class="guestbook-home-send" id="home-message-send">发送</span>
+                </div>
+                <div id="home-message-list" class="guestbook-home-list"></div>
+            </div>
+        </section>
+
+        <!-- 终章落款 -->
+        <footer class="footer">
+            <div class="footer-signature">
+                <p class="footer-line">此致</p>
+                <p class="footer-name">y</p>
+            </div>
+        </footer>
+    </div>
+
+    <script src="生命花园_script.js"></script>
+</body>
+</html>
