@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>烹饪这件小事...吗？ - THE BRUNCH - 生命花园</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300&family=Noto+Serif+SC:wght@300;400;500;600&family=Inter:wght@300;400&display=swap" rel="stylesheet">
+    <style>
+        /* ========================================
+           杂志级文章排版 - 修正版
+           ======================================== */
+        body {
+            background-color: var(--color-bg);
+        }
+
+        /* 主体容器：足够的顶部物理留白，确保不与导航栏重叠 */
+        .article-container {
+            padding-top: 160px;
+            min-height: 100vh;
+        }
+
+        /* ========================================
+           文章头部：杂志级层级结构
+           ======================================== */
+        .article-header {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 0 10%;
+        }
+
+        /* 系列分类链接 */
+        .article-series {
+            font-family: 'Inter', sans-serif;
+            font-size: 12px;
+            font-weight: 400;
+            letter-spacing: 0.15em;
+            color: var(--color-forest);
+            text-transform: uppercase;
+            margin-bottom: 32px;
+        }
+
+        .article-series a {
+            color: inherit;
+            text-decoration: none;
+            transition: opacity 0.3s ease;
+        }
+
+        .article-series a:hover {
+            opacity: 0.7;
+        }
+
+        /* 【发布日期区】小字号、克制的淡灰/薄雾色 */
+        .article-date {
+            font-family: 'Inter', sans-serif;
+            font-size: 14px;
+            font-weight: 400;
+            letter-spacing: 0.08em;
+            color: #9CA3A0;
+            opacity: 0.85;
+            margin-bottom: 28px;
+            text-transform: uppercase;
+        }
+
+        /* 【巨幅大标题】极具压迫感的大字号复古宋体 */
+        .article-title {
+            font-family: 'Noto Serif SC', serif;
+            font-size: 52px;
+            font-weight: 600;
+            letter-spacing: -0.02em;
+            color: var(--color-text-main);
+            line-height: 1.25;
+            margin-bottom: 60px;
+        }
+
+        /* ========================================
+           标题图 / 封面图
+           ======================================== */
+        .article-cover {
+            max-width: 900px;
+            margin: 0 auto 60px;
+            padding: 0 10%;
+        }
+
+        .article-cover img {
+            width: 100%;
+            height: auto;
+            opacity: 0.95;
+            filter: sepia(5%) saturate(0.95);
+            transition: all 0.6s cubic-bezier(0.25, 1, 0.5, 1);
+        }
+
+        .article-cover img:hover {
+            opacity: 1;
+            filter: sepia(0%) saturate(1);
+            transform: scale(1.01);
+        }
+
+        /* ========================================
+           正文区：舒适宽度与呼吸感
+           ======================================== */
+        .article-body {
+            max-width: 780px;
+            margin: 0 auto;
+            padding: 0 10% 6rem;
+        }
+
+        .article-body p {
+            font-family: 'Noto Serif SC', serif;
+            font-size: 16px;
+            font-weight: 400;
+            line-height: 2.0;
+            color: var(--color-text-muted);
+            letter-spacing: 0.02em;
+            text-indent: 2em;
+            margin-bottom: 1.8rem;
+        }
+
+        /* ========================================
+           文章底部
+           ======================================== */
+        .article-footer {
+            max-width: 780px;
+            margin: 0 auto;
+            padding: 3rem 10% 4rem;
+            text-align: center;
+        }
+
+        .article-footer a {
+            font-family: 'Inter', sans-serif;
+            font-size: 13px;
+            letter-spacing: 0.15em;
+            color: var(--color-text-muted);
+            text-decoration: none;
+            padding: 0.8rem 1.5rem;
+            border: 1px solid rgba(44, 48, 46, 0.12);
+            transition: all 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+            display: inline-block;
+        }
+
+        .article-footer a:hover {
+            color: var(--color-forest);
+            border-color: var(--color-forest);
+            background: rgba(255, 255, 255, 0.5);
+        }
+
+        /* ========================================
+           响应式设计
+           ======================================== */
+        @media (max-width: 768px) {
+            .article-container { padding-top: 140px; }
+            .article-header, .article-body, .article-footer, .article-cover {
+                padding-left: 6%;
+                padding-right: 6%;
+            }
+            .article-cover { margin-bottom: 50px; }
+            .article-title {
+                font-size: 36px;
+                line-height: 1.3;
+                margin-bottom: 50px;
+            }
+            .article-body p {
+                font-size: 15px;
+                line-height: 1.9;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav class="top-nav">
+        <a href="./index.html" class="nav-item"><span class="nav-en">HOME</span><span class="nav-zh">首页</span></a>
+        <a href="./about.html" class="nav-item"><span class="nav-en">ABOUT ME</span><span class="nav-zh">关于我</span></a>
+        <a href="./fiction.html" class="nav-item"><span class="nav-en">FICTION</span><span class="nav-zh">虚构</span></a>
+        <a href="./brunch.html" class="nav-item" style="opacity: 1;"><span class="nav-en" style="color: var(--color-forest);">THE BRUNCH</span><span class="nav-zh" style="opacity: 1; transform: translateY(0);">早午餐</span></a>
+        <a href="./blog.html" class="nav-item"><span class="nav-en">BLOG</span><span class="nav-zh">博客</span></a>
+        <a href="./photography.html" class="nav-item"><span class="nav-en">PHOTOGRAPHY</span><span class="nav-zh">摄影</span></a>
+        <a href="./travel.html" class="nav-item"><span class="nav-en">TRAVEL</span><span class="nav-zh">旅行</span></a>
+    </nav>
+
+    <main class="article-container">
+        <header class="article-header">
+            <p class="article-series"><a href="./brunch.html">THE BRUNCH</a></p>
+            <p class="article-date">Jul 15, 2026</p>
+            <h1 class="article-title">烹饪这件小事...吗？</h1>
+        </header>
+
+        <!-- 标题图 / 封面图 -->
+        <figure class="article-cover">
+            <img src="./images-brunch/cooking-little-thing/标题图.jpg" alt="烹饪这件小事...吗？">
+        </figure>
+
+        <article class="article-body">
+            <p>自己做饭，照顾自己的饮食之后，才懂得了一点做饭的珍贵和不易。它首先是繁琐的体力劳动，无论多么简单的一次做饭都包含了完整的环节，从构思，买菜，备菜，制作再到清洁，一一都考验着人的耐心和体力。后来我渐渐发现，做饭所要付出的还有心力，投入时做的饭和只想敷衍了事时做的饭在口味上简直是天差地别，我无法在这件事上掩饰任何，因此深深感激为我做饭多年如一日的父母，这里面长久付出的心力和耐力都是现在的我难以企及的。我除了为自己做饭，已经很少能毫无计较地为他人奉献这么多了，但接受了这样多的馈赠，我依然怀着一种希望和期待，有一天我也会为我珍惜，爱着的人做长久的饭。</p>
+
+            <p>而在路上走得越久，越发现食物从来不只是食物而已，它连接着文化，历史还有记忆。刚开始做饭，总是挑在家里吃得最多的菜开始，比如香辣干锅，辣椒炒肉等等，先仔细回忆父母是如何制作食物的，再将这些菜差不多地搬到他乡的厨房里，尽管不是一模一样，但总觉得比外面大多数馆子吃了要好。且初到他乡，一开火，热气和熟悉的香味一齐涌来，总是能给人一种迅速安定的错觉。</p>
+
+            <p>只是有时也无可避免地会想起从前在家里吃饭的时光，什么都不用管，到了饭点自觉坐在桌前等待着可口的饭菜，再和父母闲聊一天的大小琐事。在长久的习惯养成里，我吃饭的时间点基本上很规律。如今，差不多的时间点，却是独自一人坐在桌前，想到家里的饭桌上父母依然在那，吃着那些记忆里无比熟悉的饭菜，才惊觉一家人围坐的日常已经渐行渐远了。</p>
+
+            <p>我逐渐想明白，没有什么是不会变的，如同人执着地要在他乡寻找归属感，却永远无法找到。我也曾以为我的饮食喜欢永不会变，本科四年外出吃饭总是找川菜馆，不然就是湘菜，江西菜，如今却觉得，叉烧饭也是很好吃的~</p>
+        </article>
+
+        <footer class="article-footer">
+            <a href="./brunch.html">← 返回早午餐</a>
+        </footer>
+
+        <footer class="footer">
+            <div class="footer-signature">
+                <p class="footer-line">此致</p>
+                <p class="footer-name">y</p>
+            </div>
+        </footer>
+    </main>
+</body>
+</html>

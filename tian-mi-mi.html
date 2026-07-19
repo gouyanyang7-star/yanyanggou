@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>《甜蜜蜜》：爱情之外 - BLOG - 生命花园</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300&family=Noto+Serif+SC:wght@300;400;500;600&family=Inter:wght@300;400&display=swap" rel="stylesheet">
+    <style>
+        /* ========================================
+           杂志级文章排版 - 修正版
+           ======================================== */
+        body {
+            background-color: var(--color-bg);
+        }
+
+        /* 主体容器：足够的顶部物理留白，确保不与导航栏重叠 */
+        .article-container {
+            padding-top: 160px;
+            min-height: 100vh;
+        }
+
+        /* ========================================
+           文章头部：杂志级层级结构
+           ======================================== */
+        .article-header {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 0 10%;
+        }
+
+        /* 系列分类链接 */
+        .article-series {
+            font-family: 'Inter', sans-serif;
+            font-size: 12px;
+            font-weight: 400;
+            letter-spacing: 0.15em;
+            color: var(--color-forest);
+            text-transform: uppercase;
+            margin-bottom: 32px;
+        }
+
+        .article-series a {
+            color: inherit;
+            text-decoration: none;
+            transition: opacity 0.3s ease;
+        }
+
+        .article-series a:hover {
+            opacity: 0.7;
+        }
+
+        /* 【发布日期区】小字号、克制的淡灰/薄雾色 */
+        .article-date {
+            font-family: 'Inter', sans-serif;
+            font-size: 14px;
+            font-weight: 400;
+            letter-spacing: 0.08em;
+            color: #9CA3A0;
+            opacity: 0.85;
+            margin-bottom: 28px;
+            text-transform: uppercase;
+        }
+
+        /* 【巨幅大标题】极具压迫感的大字号复古宋体 */
+        .article-title {
+            font-family: 'Noto Serif SC', serif;
+            font-size: 52px;
+            font-weight: 600;
+            letter-spacing: -0.02em;
+            color: var(--color-text-main);
+            line-height: 1.25;
+            margin-bottom: 60px;
+        }
+
+        /* ========================================
+           标题图 / 封面图
+           ======================================== */
+        .article-cover {
+            max-width: 900px;
+            margin: 0 auto 60px;
+            padding: 0 10%;
+        }
+
+        .article-cover img {
+            width: 100%;
+            height: auto;
+            opacity: 0.95;
+            filter: sepia(5%) saturate(0.95);
+            transition: all 0.6s cubic-bezier(0.25, 1, 0.5, 1);
+        }
+
+        .article-cover img:hover {
+            opacity: 1;
+            filter: sepia(0%) saturate(1);
+            transform: scale(1.01);
+        }
+
+        /* ========================================
+           正文区：舒适宽度与呼吸感
+           ======================================== */
+        .article-body {
+            max-width: 780px;
+            margin: 0 auto;
+            padding: 0 10% 6rem;
+        }
+
+        .article-body p {
+            font-family: 'Noto Serif SC', serif;
+            font-size: 16px;
+            font-weight: 400;
+            line-height: 2.0;
+            color: var(--color-text-muted);
+            letter-spacing: 0.02em;
+            text-indent: 2em;
+            margin-bottom: 1.8rem;
+        }
+
+        /* 引用块 */
+        .article-body .quote-block {
+            background: rgba(255, 255, 255, 0.6);
+            border-left: 2px solid var(--color-forest);
+            padding: 1.8rem 2.2rem;
+            margin: 3rem 0;
+            text-indent: 0;
+        }
+
+        .article-body .quote-block p {
+            text-indent: 0;
+            margin-bottom: 0.6rem;
+            font-size: 15px;
+            line-height: 1.9;
+            color: var(--color-text-main);
+        }
+
+        /* ========================================
+           文章底部
+           ======================================== */
+        .article-footer {
+            max-width: 780px;
+            margin: 0 auto;
+            padding: 3rem 10% 4rem;
+            text-align: center;
+        }
+
+        .article-footer a {
+            font-family: 'Inter', sans-serif;
+            font-size: 13px;
+            letter-spacing: 0.15em;
+            color: var(--color-text-muted);
+            text-decoration: none;
+            padding: 0.8rem 1.5rem;
+            border: 1px solid rgba(44, 48, 46, 0.12);
+            transition: all 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+            display: inline-block;
+        }
+
+        .article-footer a:hover {
+            color: var(--color-forest);
+            border-color: var(--color-forest);
+            background: rgba(255, 255, 255, 0.5);
+        }
+
+        /* ========================================
+           响应式设计
+           ======================================== */
+        @media (max-width: 768px) {
+            .article-container { padding-top: 140px; }
+            .article-header, .article-body, .article-footer, .article-cover {
+                padding-left: 6%;
+                padding-right: 6%;
+            }
+            .article-cover { margin-bottom: 50px; }
+            .article-title {
+                font-size: 36px;
+                line-height: 1.3;
+                margin-bottom: 50px;
+            }
+            .article-body p {
+                font-size: 15px;
+                line-height: 1.9;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav class="top-nav">
+        <a href="./index.html" class="nav-item"><span class="nav-en">HOME</span><span class="nav-zh">首页</span></a>
+        <a href="./about.html" class="nav-item"><span class="nav-en">ABOUT ME</span><span class="nav-zh">关于我</span></a>
+        <a href="./fiction.html" class="nav-item"><span class="nav-en">FICTION</span><span class="nav-zh">虚构</span></a>
+        <a href="./brunch.html" class="nav-item"><span class="nav-en">THE BRUNCH</span><span class="nav-zh">早午餐</span></a>
+        <a href="./blog.html" class="nav-item" style="opacity: 1;"><span class="nav-en" style="color: var(--color-forest);">BLOG</span><span class="nav-zh" style="opacity: 1; transform: translateY(0);">博客</span></a>
+        <a href="./photography.html" class="nav-item"><span class="nav-en">PHOTOGRAPHY</span><span class="nav-zh">摄影</span></a>
+        <a href="./travel.html" class="nav-item"><span class="nav-en">TRAVEL</span><span class="nav-zh">旅行</span></a>
+    </nav>
+
+    <main class="article-container">
+        <header class="article-header">
+            <p class="article-series"><a href="./blog.html">BLOG</a></p>
+            <p class="article-date">Nov 15, 2025</p>
+            <h1 class="article-title">《甜蜜蜜》：爱情之外</h1>
+        </header>
+
+        <!-- 标题图 / 封面图 -->
+        <figure class="article-cover">
+            <img src="./images-blog/tian-mi-mi/甜蜜蜜标题图.jpg" alt="《甜蜜蜜》：爱情之外">
+        </figure>
+
+        <article class="article-body">
+            <p>"甜蜜蜜/你笑得甜蜜蜜/好像花儿开在春风里/开在春风里···。"当邓丽君甜美的嗓音再次响起时，《甜蜜蜜》里小军载着李翘游走在香港的街头，两人脸上洋溢着的幸福笑容仿佛又将观众拉回到那个熟悉又陌生的20世纪90年代。</p>
+
+            <p>邓丽君甜美悠扬的声音唱出了一种古典式的怀旧和怅惘，然而在该影片的镜头中，爱情却呈现出其极为现代性的一面。小军和李翘在香港萍水相逢。两个性格南辕北辙的人相知，相爱。如果放在几百年前，大概很难想天南地北的两个人会走在一起。然而在香港，观众天然地相信这个故事。因为在他们的感情里，香港其实是一种语境。它是一个高速流动的现代都市，这里的人物来去匆匆。而只有在这样的大都会里，两个本该毫无交集的人才能够相遇乃至相爱。同样，因为匆匆，都市里的一切都充满了变化和未知，于是这样的爱情是不追求明天的，只争朝夕。李翘在香港呆的时间比小军长，也更熟悉现代都市的语法和气质，所以她能接受她和小军之间的爱情，在无法寻求稳定和永恒的都市生活里，作为一个普通人，她也会贪念这一时的温存。然而当小军想要送一条项链给她时她却拒绝了。她比任何时刻都更清楚地意识到这其实是一种对未来和更长久关系的邀请，但却是一种她不能承受之情重。漂泊在异乡的人没有永恒和承诺可以给出，因此她才会说出"黎小军同志，我来香港的目的不是你呀，你来香港的目的也不是我呀。"</p>
+
+            <p>而都市的高速流动性所带来的不仅是相遇，还有毫无缘由的离散。小军和小婷的相聚又分离，小军和李翘的相遇又分开，以及小军面对和小婷离婚时写下的那句："小婷，我也是难过的。"大概是"从前的车马变得慢，一生一世只够爱一个人"式的古典爱情所不能理解的。这是都市语境下的爱情，也是现代意义上的爱情，开始和结束都来去匆匆，仿佛是一种幻觉。然而都市的魅力正在于此，它适合两颗心短暂相逢又匆匆，适合不能迎接明天的情感在曲巷里藏身，也适合沦落天涯的人再度重逢。所以电影的最后，小军和李翘得以在另一个大都市——纽约再度相遇。两人眼含热泪却相顾无言。这是华语电影史上经典的一幕，也可以说，这是现代爱情最动人的一面。</p>
+
+            <p>此外，影片构建的极具现代性的爱情经验恰恰是新时代精神图景的一种映照。《甜蜜蜜》这个名字天然地让人回忆起爱情里的温暖和感动，然而影片的英文名《Comrades: almost a love story》却提示我们爱情的叙事外壳之下不能忘记这部影片对现实的指涉。电影于1996年上映于中国香港。时值改革开放前夕，新时代的气息已经悄然弥漫开来。而香港本身的国际化背景也让其成为了中国全球化的先锋之地。黎小军从天津出走来到香港，而李翘亦是从内地来到香港。他们的迁徙正是中国全球化进程的一个缩影。在这一浪潮的冲击下，他们的文化观念和自我身份认同变得模糊和游移。小军和李翘仿佛身处两个世界的缝隙之中，既想融入香港，又无法完全抛弃自己内地的背景。在这一关于文化身份的探索以及确认的过程中，他们所感受到的欣喜，困惑，失落其实都折射出中国遭遇全球化浪潮冲击的阵痛与转型。</p>
+
+            <p>同时，小军和李翘也是典型的从事体力劳动的工人阶级。电影通过展示他们麻木疲惫的状态揭示了其身体被工具化和异化的现实处境。只有在展现爱情的一面时，他们才展现出作为人的喜怒哀乐。于是爱情在电影里成为一个可以暂时安放文化身份和逃离异化的场域。值得一提的是，似乎在强调工人阶级的处境时，爱情最不值得一提，因为还有许多紧迫的关于生活的挣扎。但在许多展示工人阶级的电影里，爱情常常成为主要的叙事线索。为什么偏偏是爱情让我们感到工人阶级的处境？在电影《甜蜜蜜》里，小军和李翘作为外来者，他们永远无法融入香港。这一双重处境使他们永远成为异乡的客体。也因此感情成为他们唯一可以感知和给予的东西，只有在亲密的私人关系里，身体才能重新获得温暖，欲望和脆弱，他们才能重新夺回主体性。然而社会对其的残忍也在于此，爱情成为唯一时，代表他们除此以外一无所有。因此爱情可以发生，却永远无法发展为一个关于未来和永恒的承诺，所以小军要和李翘错过好几次。但也正是这一全人类共通的感情提醒我们，工人阶级也是人，他们有人的尊严和感情。然而通过代表美好的爱情来揭示生活某种沉重的真相是残酷的，也许这便是电影取名为"almost a love story"的原因。</p>
+        </article>
+
+        <footer class="article-footer">
+            <a href="./blog.html">← 返回博客</a>
+        </footer>
+
+        <footer class="footer">
+            <div class="footer-signature">
+                <p class="footer-line">此致</p>
+                <p class="footer-name">y</p>
+            </div>
+        </footer>
+    </main>
+</body>
+</html>

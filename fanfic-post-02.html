@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>终章（下）：谴悲怀 - 夜色尚浅 - 生命花园</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300&family=Noto+Serif+SC:wght@300;400&family=Inter:wght@300;400&display=swap" rel="stylesheet">
+    <style>
+        /* ========================================
+           文章正文页
+           ======================================== */
+
+        .post-page {
+            min-height: 100vh;
+            background-color: var(--color-bg);
+            padding-top: 80px;
+        }
+
+        /* 文章头部 */
+        .post-header {
+            padding: 6rem 10% 3rem;
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .post-series {
+            font-family: 'Inter', sans-serif;
+            font-size: 0.7rem;
+            font-weight: 400;
+            letter-spacing: 0.25em;
+            color: var(--color-mist-blue);
+            opacity: 0.7;
+            text-transform: uppercase;
+            margin-bottom: 1.5rem;
+        }
+
+        .post-series a {
+            color: inherit;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .post-series a:hover {
+            color: var(--color-forest);
+        }
+
+        .post-title {
+            font-family: 'Noto Serif SC', serif;
+            font-size: 1.8rem;
+            font-weight: 400;
+            letter-spacing: 0.1em;
+            color: var(--color-text-main);
+            margin-bottom: 1rem;
+            line-height: 1.5;
+        }
+
+        .post-subtitle {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1rem;
+            font-weight: 300;
+            letter-spacing: 0.2em;
+            color: var(--color-forest);
+            opacity: 0.8;
+        }
+
+        /* 分隔线 */
+        .post-divider {
+            width: 40px;
+            height: 1px;
+            background: rgba(44, 48, 46, 0.15);
+            margin: 3rem auto;
+        }
+
+        /* 文章正文 */
+        .post-content {
+            max-width: 720px;
+            margin: 0 auto;
+            padding: 0 10% 6rem;
+        }
+
+        .post-content p {
+            font-family: 'Noto Serif SC', serif;
+            font-size: 1rem;
+            font-weight: 300;
+            line-height: 2.4;
+            color: var(--color-text-muted);
+            letter-spacing: 0.02em;
+            text-indent: 2em;
+            margin-bottom: 1.8rem;
+        }
+
+        /* 分隔符 */
+        .post-content .divider-line {
+            text-align: center;
+            margin: 3rem 0;
+            text-indent: 0;
+            font-family: 'Cormorant Garamond', serif;
+            color: var(--color-mist-blue);
+            opacity: 0.5;
+            letter-spacing: 0.5em;
+        }
+
+        /* 对话 */
+        .post-content .dialogue {
+            text-indent: 2em;
+            margin-bottom: 1.8rem;
+        }
+
+        /* 结尾标注 */
+        .post-content .the-end {
+            text-align: center;
+            text-indent: 0;
+            margin-top: 4rem;
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 0.9rem;
+            color: var(--color-forest);
+            letter-spacing: 0.3em;
+        }
+
+        /* 返回链接 */
+        .post-nav {
+            text-align: center;
+            padding: 0 10% 6rem;
+        }
+
+        .post-nav a {
+            font-family: 'Inter', sans-serif;
+            font-size: 0.8rem;
+            letter-spacing: 0.15em;
+            color: var(--color-text-muted);
+            text-decoration: none;
+            transition: color 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+        }
+
+        .post-nav a:hover {
+            color: var(--color-forest);
+        }
+
+        /* 响应式 */
+        @media (max-width: 768px) {
+            .post-header {
+                padding: 4rem 5% 2rem;
+            }
+
+            .post-content {
+                padding: 0 5% 4rem;
+            }
+
+            .post-title {
+                font-size: 1.4rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 顶部悬浮导航栏 -->
+    <nav class="top-nav">
+        <a href="./index.html" class="nav-item">
+            <span class="nav-en">HOME</span>
+            <span class="nav-zh">首页</span>
+        </a>
+        <a href="./about.html" class="nav-item">
+            <span class="nav-en">ABOUT ME</span>
+            <span class="nav-zh">关于我</span>
+        </a>
+        <a href="./fiction.html" class="nav-item" style="opacity: 1;">
+            <span class="nav-en" style="color: var(--color-forest);">FICTION</span>
+            <span class="nav-zh" style="opacity: 1; transform: translateY(0);">虚构</span>
+        </a>
+        <a href="./brunch.html" class="nav-item">
+            <span class="nav-en">THE BRUNCH</span>
+            <span class="nav-zh">早午餐</span>
+        </a>
+        <a href="./blog.html" class="nav-item">
+            <span class="nav-en">BLOG</span>
+            <span class="nav-zh">博客</span>
+        </a>
+        <a href="./photography.html" class="nav-item">
+            <span class="nav-en">PHOTOGRAPHY</span>
+            <span class="nav-zh">摄影</span>
+        </a>
+        <a href="./travel.html" class="nav-item">
+            <span class="nav-en">TRAVEL</span>
+            <span class="nav-zh">旅行</span>
+        </a>
+    </nav>
+
+    <!-- 文章页面 -->
+    <main class="post-page">
+        <!-- 文章头部 -->
+        <header class="post-header">
+            <p class="post-series"><a href="./fiction-collection-fanfic.html">夜色尚浅</a> · 云之羽同人</p>
+            <h1 class="post-title">终章（下）</h1>
+            <p class="post-subtitle">谴悲怀</p>
+        </header>
+
+        <div class="post-divider"></div>
+
+        <!-- 文章正文 -->
+        <article class="post-content">
+            <p class="divider-line">——</p>
+
+            <p>　　伯父病逝的第二年春，我才来到了云溪镇。去年大雪封了山谷，送信一事就被搁置下来，但我始终记着伯父的心愿，打听到这位故人的住处便匆忙赶了过去。</p>
+
+            <p>　　我原以为她住在上官府邸，没成想竟是一处偏僻的农家小院。但走到此处，依山傍水，竹林葱郁，倒是个好去处。</p>
+
+            <p>　　巧的是，她也种了满院的白杜鹃。我更加肯定，她就是伯父要找的故人。但不知…她会不会是，</p>
+
+            <p>　　带着满腹的疑惑和说不上来的期盼，我轻轻扣了门，</p>
+
+            <p>　　吱呀一声，门开了。</p>
+
+            <p>　　来人看见我，微微愣神，很快她便笑起来，让我进门再说。</p>
+
+            <p>　　"你是宫门里的吧"她淡淡地开口，</p>
+
+            <p>　　"云为衫的孩子？"</p>
+
+            <p>　　她竟知道我的身份，还直呼母亲大名，我越发肯定，她就是上官浅。</p>
+
+            <p>　　"是，上官前辈。"我恭恭敬敬地答道。</p>
+
+            <p>　　这一次讶然的人换成了她，我看见她的眼睛亮晶晶的，</p>
+
+            <p>　　"你知道我？"</p>
+
+            <p>　　"他让你来的吧。"上官浅的眼神闪烁几下，很快又黯淡下去，</p>
+
+            <p>　　"他…还好吗？"</p>
+
+            <p>　　事到如今，我大概猜出了他们的故事和关系，可见当初的传闻真真假假，也不是全不可信。</p>
+
+            <p>　　伯父的丧事办得隐秘，大雪去年又封了山，消息没有传出。</p>
+
+            <p>　　看着她满含期待的脸，我一时沉默。</p>
+
+            <p>　　而她在这无边的沉默里，声音低了下去，</p>
+
+            <p>　　"他怎么了？"</p>
+
+            <p>　　"伯父去年冬天已经病逝了，他让我将这信交给云溪镇的上官浅前辈。"我艰难地开口，将怀里的信，还有伯父贴身的玉佩恭敬地递过去，随即低下头，飞快得抹去眼泪。</p>
+
+            <p>　　玉佩的确刻有上官二字，我于伯父下葬那日亲手从他身上取下，因为我有私心，想要告诉故人，</p>
+
+            <p>　　"青青子矜，悠悠我心，纵我不往，子宁不嗣音？"</p>
+
+            <p>　　他很思念她。</p>
+
+            <p>　　然而话到嘴边时，我却犹豫了，</p>
+
+            <p>　　那也是我的伯父，带我过节，陪我玩耍的伯父。</p>
+
+            <p>　　我迟钝地察觉到，原来，我一直很想他。</p>
+
+            <p>　　对面的人握着玉佩久久没有说话，半晌她颤抖的声音才从上方传来，执着地问道，</p>
+
+            <p>　　"他这些年，过得还好吗"</p>
+
+            <p>　　我的心颤了颤，</p>
+
+            <p>　　人生在世，动如参商。他们之间种种因缘际会，隔着千山万水，遥遥相望。如今，往事呼啸而过，满腹心事也只能化作一句"他还好吗"，似乎这样，那横亘在两人之间的十五年就会轰然坍塌。</p>
+
+            <p>　　然而生离作死别，竟一时分不清哪个更让人伤怀。</p>
+
+            <p>　　我作为故事外的人，也不知该如何替伯父回答，</p>
+
+            <p>　　他这一生，到底过得好不好。</p>
+
+            <p>　　佛门曾曰：不可说。</p>
+
+            <p>　　终是不可说。</p>
+
+            <p class="divider-line">—</p>
+
+            <p>　　此后，我再未见过上官浅前辈，她让我不必再来，我便依言遵循。</p>
+
+            <p>　　我渐渐记不清那天的情景了，但仍记得，她接过信时，</p>
+
+            <p>　　忽然一阵风起，信封上早已枯萎的花瓣微微颤抖，飘落在地上，恰似少女廊前行走间扬起的浅白裙裾。</p>
+
+            <p>　　这已是我为他二人最后记得的结局了。</p>
+
+            <p class="the-end">（完）</p>
+        </article>
+
+        <!-- 返回链接 -->
+        <nav class="post-nav">
+            <a href="./fiction-collection-fanfic.html">← 返回夜色尚浅</a>
+        </nav>
+
+        <!-- 终章落款 -->
+        <footer class="footer">
+            <div class="footer-signature">
+                <p class="footer-line">此致</p>
+                <p class="footer-name">y</p>
+            </div>
+        </footer>
+    </main>
+</body>
+</html>

@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>终章（上）：身后名 - 夜色尚浅 - 生命花园</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300&family=Noto+Serif+SC:wght@300;400&family=Inter:wght@300;400&display=swap" rel="stylesheet">
+    <style>
+        /* ========================================
+           文章正文页
+           ======================================== */
+
+        .post-page {
+            min-height: 100vh;
+            background-color: var(--color-bg);
+            padding-top: 80px;
+        }
+
+        /* 文章头部 */
+        .post-header {
+            padding: 6rem 10% 3rem;
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .post-series {
+            font-family: 'Inter', sans-serif;
+            font-size: 0.7rem;
+            font-weight: 400;
+            letter-spacing: 0.25em;
+            color: var(--color-mist-blue);
+            opacity: 0.7;
+            text-transform: uppercase;
+            margin-bottom: 1.5rem;
+        }
+
+        .post-series a {
+            color: inherit;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .post-series a:hover {
+            color: var(--color-forest);
+        }
+
+        .post-title {
+            font-family: 'Noto Serif SC', serif;
+            font-size: 1.8rem;
+            font-weight: 400;
+            letter-spacing: 0.1em;
+            color: var(--color-text-main);
+            margin-bottom: 1rem;
+            line-height: 1.5;
+        }
+
+        .post-subtitle {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1rem;
+            font-weight: 300;
+            letter-spacing: 0.2em;
+            color: var(--color-forest);
+            opacity: 0.8;
+        }
+
+        /* 分隔线 */
+        .post-divider {
+            width: 40px;
+            height: 1px;
+            background: rgba(44, 48, 46, 0.15);
+            margin: 3rem auto;
+        }
+
+        /* 文章正文 */
+        .post-content {
+            max-width: 720px;
+            margin: 0 auto;
+            padding: 0 10% 6rem;
+        }
+
+        .post-content p {
+            font-family: 'Noto Serif SC', serif;
+            font-size: 1rem;
+            font-weight: 300;
+            line-height: 2.4;
+            color: var(--color-text-muted);
+            letter-spacing: 0.02em;
+            text-indent: 2em;
+            margin-bottom: 1.8rem;
+        }
+
+        /* 分隔符 */
+        .post-content .divider-line {
+            text-align: center;
+            margin: 3rem 0;
+            text-indent: 0;
+            font-family: 'Cormorant Garamond', serif;
+            color: var(--color-mist-blue);
+            opacity: 0.5;
+            letter-spacing: 0.5em;
+        }
+
+        /* 引用/史料 */
+        .post-content .quote-block {
+            background: rgba(255, 255, 255, 0.5);
+            border-left: 2px solid var(--color-forest);
+            padding: 1.5rem 2rem;
+            margin: 3rem 0;
+            text-indent: 0;
+        }
+
+        .post-content .quote-block p {
+            text-indent: 0;
+            margin-bottom: 0;
+            font-size: 0.95rem;
+            line-height: 2;
+        }
+
+        /* 返回链接 */
+        .post-nav {
+            text-align: center;
+            padding: 0 10% 6rem;
+        }
+
+        .post-nav a {
+            font-family: 'Inter', sans-serif;
+            font-size: 0.8rem;
+            letter-spacing: 0.15em;
+            color: var(--color-text-muted);
+            text-decoration: none;
+            transition: color 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+        }
+
+        .post-nav a:hover {
+            color: var(--color-forest);
+        }
+
+        /* 响应式 */
+        @media (max-width: 768px) {
+            .post-header {
+                padding: 4rem 5% 2rem;
+            }
+
+            .post-content {
+                padding: 0 5% 4rem;
+            }
+
+            .post-title {
+                font-size: 1.4rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 顶部悬浮导航栏 -->
+    <nav class="top-nav">
+        <a href="./index.html" class="nav-item">
+            <span class="nav-en">HOME</span>
+            <span class="nav-zh">首页</span>
+        </a>
+        <a href="./about.html" class="nav-item">
+            <span class="nav-en">ABOUT ME</span>
+            <span class="nav-zh">关于我</span>
+        </a>
+        <a href="./fiction.html" class="nav-item" style="opacity: 1;">
+            <span class="nav-en" style="color: var(--color-forest);">FICTION</span>
+            <span class="nav-zh" style="opacity: 1; transform: translateY(0);">虚构</span>
+        </a>
+        <a href="./brunch.html" class="nav-item">
+            <span class="nav-en">THE BRUNCH</span>
+            <span class="nav-zh">早午餐</span>
+        </a>
+        <a href="./blog.html" class="nav-item">
+            <span class="nav-en">BLOG</span>
+            <span class="nav-zh">博客</span>
+        </a>
+        <a href="./photography.html" class="nav-item">
+            <span class="nav-en">PHOTOGRAPHY</span>
+            <span class="nav-zh">摄影</span>
+        </a>
+        <a href="./travel.html" class="nav-item">
+            <span class="nav-en">TRAVEL</span>
+            <span class="nav-zh">旅行</span>
+        </a>
+    </nav>
+
+    <!-- 文章页面 -->
+    <main class="post-page">
+        <!-- 文章头部 -->
+        <header class="post-header">
+            <p class="post-series"><a href="./fiction-collection-fanfic.html">夜色尚浅</a> · 云之羽同人</p>
+            <h1 class="post-title">终章（上）</h1>
+            <p class="post-subtitle">身后名</p>
+        </header>
+
+        <div class="post-divider"></div>
+
+        <!-- 文章正文 -->
+        <article class="post-content">
+            <p>　　我叫云念徴，云朵的云。听父亲说，母亲怀孕那年，宫门生变，小叔叔宫远徴为了保护他们，惨死在宫变那夜，我的名字就是为了纪念他。母亲也在那晚受了伤，导致后来生我时很是艰难，鬼门关走一趟，父亲心疼得红了眼眶，让我随母姓，发誓再也不生。</p>
+
+            <p>　　宫门这一辈，就我一个小孩，很是寂寞。</p>
+
+            <p>　　自我三岁后，父亲常带着母亲出门去玩，还老假借巡视之名，也不带我。这次因着我哭闹，爹爹恼了，他们把我丢给了伯父。</p>
+
+            <p>　　哦对了，我还有一个伯父的。</p>
+
+            <p>　　他叫宫尚角，也不大出门，常年拘在角宫。听说在那场变乱中也落下了病根，身体不好，畏寒。此人极为冷漠固执，流水般的补品送进去，又流水般地退出来。我幼时曾隔着门缝偷看过，宫尚角伯父彼时正坐在树下，院子里一个人都没有，他披着厚厚的大氅，整个人都罩在看不清的夜色里，似乎…是在下棋？但他分明又没有动，只是盯着发呆，像是在认真想下一步的招数，我觉得可能是哪个高人留下的残局。棋盘旁还放了一小坛酒，隔着门我都闻到了清淡的月桂香气，煞有介事地猜想有好些年头。</p>
+
+            <p>　　不知道过了多久，他竟直直看过来，眼神像刀，一眼就刺穿了门后的我，吓得我赶紧跑掉了。偶尔午夜回想起来，也只是觉得当时夜色中半明半暗的他有些难过。</p>
+
+            <p>　　后来，他变得愈发忙碌，也愈发清瘦，偶尔在宫门内见到，也只能瞥见匆匆消失的衣角，甚至长时间见不到人，连每年的节日都不和我们一起吃饭了，母亲和父亲都拿他没法，他是宫门里最厉害的人，每天有太多的事需要处理，他是英雄。</p>
+
+            <p>　　而那晚的月光和月桂香就是我十岁前对他的全部印象了。</p>
+
+            <p>　　因此这一次，我怕得很。</p>
+
+            <p>　　"尚角伯父"</p>
+
+            <p>　　这一天还是到来了，我扭扭捏捏地被侍卫带到了宫尚角的书房，紧张地捏着衣角，生怕下一秒他那凌厉的眼神就要落在我的身上。但他只是屏退了侍卫，语气淡淡的，辨不出喜恶，</p>
+
+            <p>　　"念徵，你今年多大？"</p>
+
+            <p>　　"十岁"我有些惊讶他竟然知道我的名字，我一直以为他从不关心宫门里的任何人。</p>
+
+            <p>　　"的确，是该十岁了。"</p>
+
+            <p>　　我悄悄抬头望他，他的语气骤然变得飘忽，那双布满了寒冰的眸里，不知何时刮起了风尘，他仿佛在透过我，看另外一个人。</p>
+
+            <p>　　我不懂。</p>
+
+            <p class="divider-line">——</p>
+
+            <p>　　一晃已经在伯父这里住了大半个月，这些时日他也不常在，但我已经不怕他了，因为他回来的时候总会给我带些外面时兴的小玩意儿，让我陪他一起吃饭。但他有些古怪，幼时见过的棋局，空闲的时候伯父还是会摆在树下，不同的是这次我看清了，但很失望，执黑这端，大半的棋子已经被执白的围困，甚至有一大半都空了，</p>
+
+            <p>　　根本不是什么残局，这明明是败局。</p>
+
+            <p>　　我向伯父表达过我的不解，他只是笑笑，说带我溜出宫门去过上元灯节。宫门男子成人之前是不被允许出宫的，我没想到英雄一样的伯父也会干这种事，兴奋得转眼就把棋局忘在了脑后，高高兴兴牵着伯父的手出门过节去了。那是我成年前唯一一次出门，父亲和母亲回来后我便被送去后山跟着长老修炼，</p>
+
+            <p>　　和伯父的联系断了。</p>
+
+            <p class="divider-line">——</p>
+
+            <p>　　再次来到伯父宫中的院落，我已经十七岁了。重新踏进这座小院，好像一切都没变，如同初见一般他还是一袭黑衣坐在院里的月桂树下，轮廓分明的面庞，眼神依旧清亮；但好像又什么都变了，宽大的衣袍虽遮住了他薄如纸的身形，两鬓的白发却已悄悄滋长。</p>
+
+            <p>　　世人都说"美人迟暮将军老，最是红尘两不堪"，想来也是有道理的。</p>
+
+            <p>　　而我知道，伯父快要死了。</p>
+
+            <p>　　这些年，他为宫门操劳，又不肯吃药，身子早已日渐衰败，终是走到了油尽灯枯的一天。</p>
+
+            <p>　　他指明要见我。</p>
+
+            <p>　　出后山那天夜晚我曾问过父母，伯父为何辛劳如厮，他们的眼里也染上了和伯父一样的忧伤，摇摇头，拍了拍我的肩，让我去陪伯父最后一程。</p>
+
+            <p>　　他自怀里递给我一封信，信封外别了支带露的白杜鹃，要我交给云溪镇一位故人，名唤上官浅。我头一次知道伯父还有故人在外，而这名字更是令我心里一惊，我曾听宫门里的下人说起，伯父的发妻之姓似乎就是上官，但她实是细作，骗取了真心，被发现身份后，伯父毫不留情地将她斩于剑下。因着这一传闻我无比崇拜伯父，英雄尚义，本不该也不会为情所困。</p>
+
+            <p>　　后来辗转多年，我才知道，故事，还有它另外一面的。不过这已是后话了。</p>
+
+            <p>　　来不及询问，伯父似是没了力气，他摆摆手让我退下。我其实还有很多话想问，比如为何不让自己停下，不肯相见的故人究竟是谁？</p>
+
+            <p>　　但看着伯父虚弱的样子，我没能说出口，他已然累极，便不忍心再叨扰，</p>
+
+            <p>　　我自门缝里望了他最后一眼，他坐在案旁，眼睛已经阖上，这是我第一次也是最后一次在他脸上看见如此轻松的神情，不知想到什么，他微微笑起来，一滴清泪很快顺着脸颊流下，像墨池里泛起的一点涟漪。</p>
+
+            <p>　　月桂簌簌，落满了他的衣袍。</p>
+
+            <p class="divider-line">——</p>
+
+            <div class="quote-block">
+                <p>《宫史》有载："宫尚角，角宫第二十三代宫主。幼时丧失母弟，后勤勉有加，成三域试炼最年少通关者。其人清正自持，冷血无情，江湖之上杀人不眨眼，得累累威名。二十七年无锋宫变中负伤，退守宫门，终生不见，于四十四年病逝于角宫，葬于后山。未曾娶妻，未留子嗣，时人叹惋。但有传闻，宫尚角曾娶一妻，其贴身玉佩手刻上官二字，似是妻姓；亦有传闻其妻乃无锋细作，被其亲手斩于宫门；然传闻终不可考，唯余满院白杜鹃，渐成美谈。"</p>
+            </div>
+        </article>
+
+        <!-- 返回链接 -->
+        <nav class="post-nav">
+            <a href="./fiction-collection-fanfic.html">← 返回夜色尚浅</a>
+        </nav>
+
+        <!-- 终章落款 -->
+        <footer class="footer">
+            <div class="footer-signature">
+                <p class="footer-line">此致</p>
+                <p class="footer-name">y</p>
+            </div>
+        </footer>
+    </main>
+</body>
+</html>
