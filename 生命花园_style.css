@@ -259,27 +259,23 @@ body::before {
     opacity: 1;
 }
 
-/* 顶部导航栏 - 毛玻璃空气感 + 双语 */
+/* ========================================
+   顶部导航栏 - 复古植物图鉴·鼠尾草灰绿调
+   自然滚动布局（非固定定位）
+   ======================================== */
 .top-nav {
-    position: fixed;
-    top: 0;
-    left: 0;
+    /* 取消固定定位，改为自然滚动布局 */
+    position: static;
     width: 100%;
-    background: rgba(244, 241, 234, 0.85);
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
-    padding: 1rem 4rem;
+    /* 复古鼠尾草灰绿底色 - 打破燕麦色的单调感 */
+    background-color: #4A584A;
+    padding: 18px 40px;
     display: flex;
     justify-content: flex-end;
     gap: 2.5rem;
-    z-index: 50;
-    opacity: 0.85;
+    /* 底边质感细线 - 老式精装书脊般的精致感 */
+    border-bottom: 1px solid rgba(226, 212, 183, 0.4);
     transition: all 0.6s cubic-bezier(0.25, 1, 0.5, 1);
-    border-bottom: 1px solid rgba(44, 48, 46, 0.05);
-}
-
-.top-nav:hover {
-    opacity: 1;
 }
 
 .nav-item {
@@ -287,7 +283,9 @@ body::before {
     flex-direction: column;
     align-items: center;
     text-decoration: none;
+    position: relative;
     transition: all 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+    padding-bottom: 4px;
 }
 
 .nav-en {
@@ -295,7 +293,8 @@ body::before {
     font-size: 0.75rem;
     font-weight: 400;
     letter-spacing: 0.2em;
-    color: var(--color-text-muted);
+    /* 暖燕麦乳白色 - 在绿底上高对比度 */
+    color: #F4F1EA;
     transition: all 0.4s cubic-bezier(0.25, 1, 0.5, 1);
 }
 
@@ -304,20 +303,47 @@ body::before {
     font-size: 0.65rem;
     font-weight: 300;
     letter-spacing: 0.15em;
-    color: var(--color-mist-blue);
+    /* 中文也使用燕麦白色 */
+    color: rgba(244, 241, 234, 0.7);
     opacity: 0;
     transform: translateY(-4px);
     transition: all 0.4s cubic-bezier(0.25, 1, 0.5, 1);
     margin-top: 2px;
 }
 
+/* 悬停态 - 暖洋甘菊黄 */
 .nav-item:hover .nav-en {
-    color: var(--color-forest);
+    color: #E2D4B7;
 }
 
 .nav-item:hover .nav-zh {
     opacity: 1;
     transform: translateY(0);
+    color: rgba(226, 212, 183, 0.85);
+}
+
+/* 激活态（当前页面）- 文字加粗 + 下划线 */
+.nav-item.active .nav-en {
+    color: #E2D4B7;
+    font-weight: 600;
+}
+
+.nav-item.active .nav-zh {
+    opacity: 1;
+    transform: translateY(0);
+    color: rgba(226, 212, 183, 0.85);
+}
+
+.nav-item.active::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60%;
+    height: 1.5px;
+    background-color: #E2D4B7;
+    /* 洋甘菊黄下划线 */
 }
 
 /* 板块通用样式 */
@@ -1255,11 +1281,15 @@ body::before {
 
     .top-nav {
         gap: 1.5rem;
-        padding: 0.8rem 1rem;
+        padding: 14px 20px;
     }
 
     .nav-item {
         font-size: 0.75rem;
+    }
+
+    .nav-item.active::after {
+        width: 50%;
     }
 
     .section {
@@ -1287,6 +1317,7 @@ body::before {
     .top-nav {
         flex-wrap: wrap;
         gap: 1rem;
+        padding: 12px 16px;
     }
 
     .section-title {
