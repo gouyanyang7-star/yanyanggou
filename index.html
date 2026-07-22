@@ -109,14 +109,17 @@
             </div>
 
             <!-- 中：自定义评论表单 -->
-            <form id="guestbook-form" class="guestbook-form">
+            <form id="guestbook-form" class="guestbook-form" onsubmit="return false;">
                 <div class="form-row">
                     <input type="text" id="guestbook-nickname" name="nickname" placeholder="昵称 *" required>
                     <input type="email" id="guestbook-email" name="email" placeholder="邮箱（选填）">
                 </div>
                 <textarea id="guestbook-content" name="content" placeholder="写下你想说的话..." required></textarea>
-                <button type="submit" class="guestbook-submit">发 送</button>
+                <button type="button" class="guestbook-submit" id="guestbook-submit-btn">发 送</button>
             </form>
+
+            <!-- 提示消息 -->
+            <div id="guestbook-message" class="guestbook-message" style="display: none;"></div>
 
             <!-- 下：评论列表容器 -->
             <div id="guestbook-comments" class="guestbook-comments">
