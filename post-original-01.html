@@ -4,20 +4,15 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>他 - 原创 - 生命花园</title>
-    <link rel="stylesheet" href="生命花园_style.css">
+    <link rel="stylesheet" href="style.css">
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300&family=Noto+Serif+SC:wght@300;400&family=Inter:wght@300;400&display=swap" rel="stylesheet">
     <style>
-        /* ========================================
-           文章正文页
-           ======================================== */
-
         .post-page {
             min-height: 100vh;
-            background-color: var(--color-bg);
+            background-color: #F4F1EA;
             padding-top: 80px;
         }
 
-        /* 文章头部 */
         .post-header {
             padding: 6rem 10% 3rem;
             text-align: center;
@@ -28,9 +23,8 @@
         .post-series {
             font-family: 'Inter', sans-serif;
             font-size: 0.7rem;
-            font-weight: 400;
             letter-spacing: 0.25em;
-            color: var(--color-mist-blue);
+            color: #8FA3A1;
             opacity: 0.7;
             text-transform: uppercase;
             margin-bottom: 1.5rem;
@@ -39,11 +33,10 @@
         .post-series a {
             color: inherit;
             text-decoration: none;
-            transition: color 0.3s ease;
         }
 
         .post-series a:hover {
-            color: var(--color-forest);
+            color: #5F6B5E;
         }
 
         .post-title {
@@ -51,12 +44,10 @@
             font-size: 2rem;
             font-weight: 400;
             letter-spacing: 0.15em;
-            color: var(--color-text-main);
+            color: #2C302E;
             margin-bottom: 1rem;
-            line-height: 1.5;
         }
 
-        /* 分隔线 */
         .post-divider {
             width: 40px;
             height: 1px;
@@ -64,7 +55,6 @@
             margin: 3rem auto;
         }
 
-        /* 文章正文 */
         .post-content {
             max-width: 720px;
             margin: 0 auto;
@@ -76,41 +66,32 @@
             font-size: 1rem;
             font-weight: 300;
             line-height: 2.4;
-            color: var(--color-text-muted);
+            color: #4A4E4B;
             letter-spacing: 0.02em;
             text-indent: 2em;
             margin-bottom: 1.8rem;
         }
 
-        /* 分隔符 */
         .post-content .divider-line {
             text-align: center;
             margin: 3rem 0;
             text-indent: 0;
             font-family: 'Cormorant Garamond', serif;
-            color: var(--color-mist-blue);
+            color: #8FA3A1;
             opacity: 0.5;
             letter-spacing: 0.5em;
         }
 
-        /* 对话 */
-        .post-content .dialogue {
-            text-indent: 2em;
-            margin-bottom: 1.8rem;
-        }
-
-        /* 结尾标注 */
         .post-content .the-end {
             text-align: center;
             text-indent: 0;
             margin-top: 4rem;
             font-family: 'Cormorant Garamond', serif;
             font-size: 0.9rem;
-            color: var(--color-forest);
+            color: #5F6B5E;
             letter-spacing: 0.3em;
         }
 
-        /* 返回链接 */
         .post-nav {
             text-align: center;
             padding: 0 10% 6rem;
@@ -120,25 +101,53 @@
             font-family: 'Inter', sans-serif;
             font-size: 0.8rem;
             letter-spacing: 0.15em;
-            color: var(--color-text-muted);
+            color: #4A4E4B;
             text-decoration: none;
-            transition: color 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+            transition: color 0.4s ease;
         }
 
         .post-nav a:hover {
-            color: var(--color-forest);
+            color: #5F6B5E;
         }
 
-        /* 响应式 */
+        .footer {
+            padding: 10rem 2rem 6rem;
+            min-height: 200px;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            align-items: center;
+        }
+
+        .footer-signature {
+            text-align: center;
+        }
+
+        .footer-line {
+            font-family: 'Cormorant Garamond', 'Noto Serif SC', serif;
+            font-size: 1rem;
+            font-weight: 300;
+            letter-spacing: 0.8em;
+            color: #4A4E4B;
+            margin-bottom: 1.5rem;
+        }
+
+        .footer-name {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.5rem;
+            font-weight: 300;
+            font-style: italic;
+            letter-spacing: 1.2em;
+            color: #5F6B5E;
+        }
+
         @media (max-width: 768px) {
             .post-header {
                 padding: 4rem 5% 2rem;
             }
-
             .post-content {
                 padding: 0 5% 4rem;
             }
-
             .post-title {
                 font-size: 1.6rem;
             }
@@ -146,119 +155,113 @@
     </style>
 </head>
 <body>
-    <!-- 顶部悬浮导航栏 -->
-    <nav class="top-nav">
-        <a href="生命花园_index.html" class="nav-item">
-            <span class="nav-en">HOME</span>
-            <span class="nav-zh">首页</span>
+    <nav class="top-nav" style="position: static; width: 100%; background-color: #4A584A; padding: 18px 40px; display: flex; justify-content: flex-end; gap: 2.5rem; border-bottom: 1px solid rgba(226, 212, 183, 0.4);">
+        <a href="index.html" class="nav-item" style="display: flex; flex-direction: column; align-items: center; text-decoration: none;">
+            <span class="nav-en" style="font-family: 'Inter', sans-serif; font-size: 0.75rem; letter-spacing: 0.2em; color: #F4F1EA;">HOME</span>
+            <span class="nav-zh" style="font-family: 'Noto Serif SC', serif; font-size: 0.65rem; letter-spacing: 0.15em; color: rgba(244, 241, 234, 0.7);">首页</span>
         </a>
-        <a href="about.html" class="nav-item">
-            <span class="nav-en">ABOUT ME</span>
-            <span class="nav-zh">关于我</span>
+        <a href="about.html" class="nav-item" style="display: flex; flex-direction: column; align-items: center; text-decoration: none;">
+            <span class="nav-en" style="font-family: 'Inter', sans-serif; font-size: 0.75rem; letter-spacing: 0.2em; color: #F4F1EA;">ABOUT ME</span>
+            <span class="nav-zh" style="font-family: 'Noto Serif SC', serif; font-size: 0.65rem; letter-spacing: 0.15em; color: rgba(244, 241, 234, 0.7);">关于我</span>
         </a>
-        <a href="fiction.html" class="nav-item" style="opacity: 1;">
-            <span class="nav-en" style="color: var(--color-forest);">FICTION</span>
-            <span class="nav-zh" style="opacity: 1; transform: translateY(0);">虚构</span>
+        <a href="fiction.html" class="nav-item" style="display: flex; flex-direction: column; align-items: center; text-decoration: none;">
+            <span class="nav-en" style="font-family: 'Inter', sans-serif; font-size: 0.75rem; letter-spacing: 0.2em; color: #E2D4B7; font-weight: 600;">FICTION</span>
+            <span class="nav-zh" style="font-family: 'Noto Serif SC', serif; font-size: 0.65rem; letter-spacing: 0.15em; color: rgba(226, 212, 183, 0.85);">虚构</span>
         </a>
-        <a href="brunch.html" class="nav-item">
-            <span class="nav-en">THE BRUNCH</span>
-            <span class="nav-zh">早午餐</span>
+        <a href="brunch.html" class="nav-item" style="display: flex; flex-direction: column; align-items: center; text-decoration: none;">
+            <span class="nav-en" style="font-family: 'Inter', sans-serif; font-size: 0.75rem; letter-spacing: 0.2em; color: #F4F1EA;">THE BRUNCH</span>
+            <span class="nav-zh" style="font-family: 'Noto Serif SC', serif; font-size: 0.65rem; letter-spacing: 0.15em; color: rgba(244, 241, 234, 0.7);">早午餐</span>
         </a>
-        <a href="blog.html" class="nav-item">
-            <span class="nav-en">BLOG</span>
-            <span class="nav-zh">博客</span>
+        <a href="blog.html" class="nav-item" style="display: flex; flex-direction: column; align-items: center; text-decoration: none;">
+            <span class="nav-en" style="font-family: 'Inter', sans-serif; font-size: 0.75rem; letter-spacing: 0.2em; color: #F4F1EA;">BLOG</span>
+            <span class="nav-zh" style="font-family: 'Noto Serif SC', serif; font-size: 0.65rem; letter-spacing: 0.15em; color: rgba(244, 241, 234, 0.7);">博客</span>
         </a>
-        <a href="photography.html" class="nav-item">
-            <span class="nav-en">PHOTOGRAPHY</span>
-            <span class="nav-zh">摄影</span>
+        <a href="photography.html" class="nav-item" style="display: flex; flex-direction: column; align-items: center; text-decoration: none;">
+            <span class="nav-en" style="font-family: 'Inter', sans-serif; font-size: 0.75rem; letter-spacing: 0.2em; color: #F4F1EA;">PHOTOGRAPHY</span>
+            <span class="nav-zh" style="font-family: 'Noto Serif SC', serif; font-size: 0.65rem; letter-spacing: 0.15em; color: rgba(244, 241, 234, 0.7);">摄影</span>
         </a>
-        <a href="travel.html" class="nav-item">
-            <span class="nav-en">TRAVEL</span>
-            <span class="nav-zh">旅行</span>
+        <a href="travel.html" class="nav-item" style="display: flex; flex-direction: column; align-items: center; text-decoration: none;">
+            <span class="nav-en" style="font-family: 'Inter', sans-serif; font-size: 0.75rem; letter-spacing: 0.2em; color: #F4F1EA;">TRAVEL</span>
+            <span class="nav-zh" style="font-family: 'Noto Serif SC', serif; font-size: 0.65rem; letter-spacing: 0.15em; color: rgba(244, 241, 234, 0.7);">旅行</span>
         </a>
     </nav>
 
-    <!-- 文章页面 -->
     <main class="post-page">
-        <!-- 文章头部 -->
         <header class="post-header">
-            <p class="post-series"><a href="fiction-collection-original.html">原创</a></p>
+            <p class="post-series"><a href="fiction.html">虚构</a></p>
             <h1 class="post-title">他</h1>
         </header>
 
         <div class="post-divider"></div>
 
-        <!-- 文章正文 -->
         <article class="post-content">
-            <p>　　他邀她出门的时候，刚巧是傍晚。天上云雨将歇，一团一团的雾气从地里升起来，她将刚叠好的衣服轻轻往床上一洒，浑然不觉他们的散落般自顾自出了门。他们约定的地点是她家附近的海边公园，笔直的一条路走下去，轻易就能到底。</p>
+            <p>他邀她出门的时候，刚巧是傍晚。天上云雨将歇，一团一团的雾气从地里升起来，她将刚叠好的衣服轻轻往床上一洒，浑然不觉他们的散落般自顾自出了门。他们约定的地点是她家附近的海边公园，笔直的一条路走下去，轻易就能到底。</p>
 
-            <p>　　今天的路上安静地反常，念头闪过了一瞬，也只有一瞬，很快一团雾流经她，不均匀的质地让她如触电般颤抖了一下。也许是下坡路的缘故，也许是地上的云簇拥着她，她很快就走到了尽头。他早已等候在那里，隔着浓雾，她看不请他的脸庞，只看见青色的棉质套装，随着风过膨胀又下落。如果人真的有前世今生，她相信这就是她千百世的爱人，也许某一世里，她是窗边拈花浅笑的少女，他是打马路过的尘客；又或许他是桥边卖花女，她是那个心生怜悯的游人，每一世他们都要有一眼的深情，片刻的因果。</p>
+            <p>今天的路上安静地反常，念头闪过了一瞬，也只有一瞬，很快一团雾流经她，不均匀的质地让她如触电般颤抖了一下。也许是下坡路的缘故，也许是地上的云簇拥着她，她很快就走到了尽头。他早已等候在那里，隔着浓雾，她看不请他的脸庞，只看见青色的棉质套装，随着风过膨胀又下落。如果人真的有前世今生，她相信这就是她千百世的爱人，也许某一世里，她是窗边拈花浅笑的少女，他是打马路过的尘客；又或许他是桥边卖花女，她是那个心生怜悯的游人，每一世他们都要有一眼的深情，片刻的因果。</p>
 
-            <p class="dialogue">"你来了。"</p>
+            <p>"你来了。"</p>
 
-            <p class="dialogue">"我等你很久了。"</p>
+            <p>"我等你很久了。"</p>
 
-            <p>　　听闻这话，她情不自禁快步走上前去。</p>
+            <p>听闻这话，她情不自禁快步走上前去。</p>
 
-            <p>　　他携着她在藤椅上坐下，身下的木条被雕刻成枝蔓的样子，仿佛是从他们身体里长出来的，不断向外延申着，伸向天空，好遮蔽住远方隐隐沸腾的黑云，叫这里变成一个与世隔绝的小岛，只有他们两个。</p>
+            <p>他携着她在藤椅上坐下，身下的木条被雕刻成枝蔓的样子，仿佛是从他们身体里长出来的，不断向外延申着，伸向天空，好遮蔽住远方隐隐沸腾的黑云，叫这里变成一个与世隔绝的小岛，只有他们两个。</p>
 
-            <p>　　她交过几个男朋友，都不及这一段让她迷恋，她的前男友里，有的稳重，有的乐观开朗，还有的爽朗大方，只有他给她一种熟悉感，每次出门去见他，都要经过小区里草木掩映的小路，走在青石板上，脚步总有回声似的，让她想起无数个小时候上学放学的时刻，好像也有这么一条路让她走，走起来也只有轻快的踢踏声，此外什么也没有。</p>
+            <p>她交过几个男朋友，都不及这一段让她迷恋，她的前男友里，有的稳重，有的乐观开朗，还有的爽朗大方，只有他给她一种熟悉感，每次出门去见他，都要经过小区里草木掩映的小路，走在青石板上，脚步总有回声似的，让她想起无数个小时候上学放学的时刻，好像也有这么一条路让她走，走起来也只有轻快的踢踏声，此外什么也没有。</p>
 
-            <p>　　自然而然的，她依偎在他的怀里了，只是每一次见面他都会说："闭上眼睛，不要看我。我还没有做好准备让你看见，如果你睁眼了，我就会立即消失，再不出现在你眼前"</p>
+            <p>自然而然的，她依偎在他的怀里了，只是每一次见面他都会说："闭上眼睛，不要看我。我还没有做好准备让你看见，如果你睁眼了，我就会立即消失，再不出现在你眼前"</p>
 
-            <p>　　她惶恐地闭上眼睛，一片黑暗里，湿气越来越重，香港总是这样，似乎是要下雨，然而这湿气拖着她往下坠，唯有藤条硌着屁股的不适感一阵接一阵袭来，藤椅是悬空的，她觉得她好像坐落在空中。</p>
+            <p>她惶恐地闭上眼睛，一片黑暗里，湿气越来越重，香港总是这样，似乎是要下雨，然而这湿气拖着她往下坠，唯有藤条硌着屁股的不适感一阵接一阵袭来，藤椅是悬空的，她觉得她好像坐落在空中。</p>
 
-            <p>　　不安渐渐弥漫开来。</p>
+            <p>不安渐渐弥漫开来。</p>
 
-            <p>　　他很快察觉了，将她揽得更紧了些，声音却有些模糊，仿佛是从远处飘过来的。</p>
+            <p>他很快察觉了，将她揽得更紧了些，声音却有些模糊，仿佛是从远处飘过来的。</p>
 
-            <p class="dialogue">"又要下雨了。"</p>
+            <p>"又要下雨了。"</p>
 
-            <p>　　蓦然片刻，她终于忍不住问道："我们能永远在一起吗？"</p>
+            <p>蓦然片刻，她终于忍不住问道："我们能永远在一起吗？"</p>
 
-            <p>　　她不怕他耻笑，她觉得和他在一起总是匆匆的，几个钟头，几天，几年很快过去了。又恍若时光绕过了他们两个，他们是一笔被拖长的墨痕，被遗忘在时间的后面，片刻都让她生出永恒的侥幸来。</p>
+            <p>她不怕他耻笑，她觉得和他在一起总是匆匆的，几个钟头，几天，几年很快过去了。又恍若时光绕过了他们两个，他们是一笔被拖长的墨痕，被遗忘在时间的后面，片刻都让她生出永恒的侥幸来。</p>
 
-            <p>　　他笑了，这样傻气的问题，但常常牵引出另一个更傻的问题来，</p>
+            <p>他笑了，这样傻气的问题，但常常牵引出另一个更傻的问题来，</p>
 
-            <p class="dialogue">"你有多爱我呢？"他问。</p>
+            <p>"你有多爱我呢？"他问。</p>
 
-            <p class="dialogue">"为了你我愿意信教。" 她听见自己的声音。</p>
+            <p>"为了你我愿意信教。" 她听见自己的声音。</p>
 
-            <p>　　这次，她很快就要走了，江湖里的女侠可以轻舟点水如穿无人之境。但她是个丧失了能力的现代人。没有合适的可以让事务部盖章的理由，没有了签证，她不知道要怎么才能重返。</p>
+            <p>这次，她很快就要走了，江湖里的女侠可以轻舟点水如穿无人之境。但她是个丧失了能力的现代人。没有合适的可以让事务部盖章的理由，没有了签证，她不知道要怎么才能重返。</p>
 
-            <p class="dialogue">"你知道的，我们还可以再见。"</p>
+            <p>"你知道的，我们还可以再见。"</p>
 
-            <p>　　他们还可以再见面，他可以到内地来，但她总觉得这是真正的最后一面，往后再见面，他们都不是此刻在这里的两个。他们在一起的时候，她可以爱他，怨他，哭他，甚至恨他，离别了，她觉得这些感情都不能相干，她没有资格，因为他们不在一起。守着回忆笑骂的人都像怨妇，她不愿意当这样的人。</p>
+            <p>他们还可以再见面，他可以到内地来，但她总觉得这是真正的最后一面，往后再见面，他们都不是此刻在这里的两个。他们在一起的时候，她可以爱他，怨他，哭他，甚至恨他，离别了，她觉得这些感情都不能相干，她没有资格，因为他们不在一起。守着回忆笑骂的人都像怨妇，她不愿意当这样的人。</p>
 
-            <p>　　而他这句话忒无情了些，全然不懂得她此刻的惘然。好比现在，海水的腥气一波一波涌来，她感觉这腥气也钻进身体里来，狭路相逢，刀光剑影，叫她一下心漾神驰，一下又浑身痛苦，反弓起身子要呕出来；将将平息下去，又犯起贱来，害羞地把头埋得更深些。</p>
+            <p>而他这句话忒无情了些，全然不懂得她此刻的惘然。好比现在，海水的腥气一波一波涌来，她感觉这腥气也钻进身体里来，狭路相逢，刀光剑影，叫她一下心漾神驰，一下又浑身痛苦，反弓起身子要呕出来；将将平息下去，又犯起贱来，害羞地把头埋得更深些。</p>
 
-            <p>　　他很快说道："今晚月亮很圆。"</p>
+            <p>他很快说道："今晚月亮很圆。"</p>
 
-            <p>　　果然，她听了不禁又微笑起来，好像黑暗之中也升起这么一轮明月，不断变大变大，她差一点看清月亮的山川河流，影沉沉的。她在香港这些时日，总爱去登山，台阶路上偶尔会有一个格外高的石阶，她总是暗暗攒气，猛然一跨，再重重踏下去，来到香港这些日子，她不知踏过多少石阶，一步一步，她不断登高，如今她疑心她竟离月亮也只有这么一个台阶，现代的嫦娥也要这样走上去，似乎再这么一步，她就能立即羽化成仙，永登极乐了。</p>
+            <p>果然，她听了不禁又微笑起来，好像黑暗之中也升起这么一轮明月，不断变大变大，她差一点看清月亮的山川河流，影沉沉的。她在香港这些时日，总爱去登山，台阶路上偶尔会有一个格外高的石阶，她总是暗暗攒气，猛然一跨，再重重踏下去，来到香港这些日子，她不知踏过多少石阶，一步一步，她不断登高，如今她疑心她竟离月亮也只有这么一个台阶，现代的嫦娥也要这样走上去，似乎再这么一步，她就能立即羽化成仙，永登极乐了。</p>
 
-            <p>　　这一点念头很快变幻着，黑暗中仿若有千百只佛眼一张一合，注视着她。</p>
+            <p>这一点念头很快变幻着，黑暗中仿若有千百只佛眼一张一合，注视着她。</p>
 
-            <p>　　在这样的注视下，她不自觉地乐观起来，竟飘飘然睁开了眼睛。然而这一下叫她大惊失色，几乎是睁眼的瞬间，他就毫不迟疑地大掌一推，她开始急速地退回，一路流光灯影地过去，那条笔直的路上，还是没有人。</p>
+            <p>在这样的注视下，她不自觉地乐观起来，竟飘飘然睁开了眼睛。然而这一下叫她大惊失色，几乎是睁眼的瞬间，他就毫不迟疑地大掌一推，她开始急速地退回，一路流光灯影地过去，那条笔直的路上，还是没有人。</p>
 
             <p class="divider-line">—</p>
 
-            <p>　　不知过了多久，她猛然抬起头来，还是她那个小房间里，衣服洒落一床一地。她住20楼，窗户没关严，被风吹开。冰凉的雨丝飘进来，落在她的脸上，倒真像是梦痕了。她松了一口气，疑心是自己太累的缘故，毕业前夕总是忙着各种交接手续和毕业论文，日子过的颠三倒四的，有这样的梦倒也不奇怪。她长呼一口气，拍了拍自己的脸蛋，又像是爱抚，彷佛自己也怜爱起这般天真的梦来，然而再也不能等啦，为了便宜，她买的凌晨12点的飞机，她得赶紧收拾。</p>
+            <p>不知过了多久，她猛然抬起头来，还是她那个小房间里，衣服洒落一床一地。她住20楼，窗户没关严，被风吹开。冰凉的雨丝飘进来，落在她的脸上，倒真像是梦痕了。她松了一口气，疑心是自己太累的缘故，毕业前夕总是忙着各种交接手续和毕业论文，日子过的颠三倒四的，有这样的梦倒也不奇怪。她长呼一口气，拍了拍自己的脸蛋，又像是爱抚，彷佛自己也怜爱起这般天真的梦来，然而再也不能等啦，为了便宜，她买的凌晨12点的飞机，她得赶紧收拾。</p>
 
-            <p>　　学生生活像打仗一样兵荒马乱地过完了，最后也只为这么个似梦非梦的时刻笑了一笑，不过到底不相干了，明天到来的时候，她就要离开香港。</p>
+            <p>学生生活像打仗一样兵荒马乱地过完了，最后也只为这么个似梦非梦的时刻笑了一笑，不过到底不相干了，明天到来的时候，她就要离开香港。</p>
 
-            <p>　　……</p>
+            <p>……</p>
 
-            <p>　　又静默了片刻，她轻轻揩掉脸上的水迹，继续叠起她的衣服来。</p>
+            <p>又静默了片刻，她轻轻揩掉脸上的水迹，继续叠起她的衣服来。</p>
 
             <p class="the-end">（完）</p>
         </article>
 
-        <!-- 返回链接 -->
         <nav class="post-nav">
             <a href="fiction.html">← 返回虚构</a>
         </nav>
 
-        <!-- 终章落款 -->
         <footer class="footer">
             <div class="footer-signature">
                 <p class="footer-line">此致</p>

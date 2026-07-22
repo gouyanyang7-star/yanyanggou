@@ -3,87 +3,60 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>张爱玲的牙牌签 - BLOG - 生命花园</title>
-    <link rel="stylesheet" href="style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300&family=Noto+Serif+SC:wght@300;400&family=Inter:wght@300;400&display=swap" rel="stylesheet">
+    <title>张爱玲的牙牌签——预言、占卜与因果 - BLOG</title>
+    <link rel="stylesheet" href="生命花园_style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@300;400&family=Inter:wght@300;400&display=swap" rel="stylesheet">
     <style>
-        .post-page { min-height: 100vh; background-color: var(--color-bg); padding-top: 80px; }
-        .post-header { padding: 6rem 10% 3rem; text-align: center; max-width: 800px; margin: 0 auto; }
-        .post-series { font-family: 'Inter', sans-serif; font-size: 0.7rem; font-weight: 400; letter-spacing: 0.25em; color: var(--color-mist-blue); opacity: 0.7; text-transform: uppercase; margin-bottom: 1.5rem; }
-        .post-series a { color: inherit; text-decoration: none; }
-        .post-series a:hover { color: var(--color-forest); }
-        .post-title { font-family: 'Noto Serif SC', serif; font-size: 1.8rem; font-weight: 400; letter-spacing: 0.1em; color: var(--color-text-main); line-height: 1.5; }
-        .post-subtitle { font-family: 'Cormorant Garamond', serif; font-size: 1rem; font-weight: 300; letter-spacing: 0.2em; color: var(--color-forest); opacity: 0.8; margin-top: 0.5rem; }
-        .post-date { font-family: 'Inter', sans-serif; font-size: 0.75rem; letter-spacing: 0.15em; color: var(--color-mist-blue); opacity: 0.8; margin-top: 1rem; }
-        .post-divider { width: 40px; height: 1px; background: rgba(44, 48, 46, 0.15); margin: 3rem auto; }
-        .post-content { max-width: 720px; margin: 0 auto; padding: 0 10% 6rem; }
-        .post-content p { font-family: 'Noto Serif SC', serif; font-size: 1rem; font-weight: 300; line-height: 2.4; color: var(--color-text-muted); letter-spacing: 0.02em; text-indent: 2em; margin-bottom: 1.8rem; }
-        .post-content .quote-block { background: rgba(255, 255, 255, 0.5); border-left: 2px solid var(--color-forest); padding: 1.5rem 2rem; margin: 2rem 0; text-indent: 0; }
-        .post-content .quote-block p { text-indent: 0; margin-bottom: 0; font-size: 0.95rem; line-height: 2; }
-        .post-nav { text-align: center; padding: 0 10% 6rem; }
-        .post-nav a { font-family: 'Inter', sans-serif; font-size: 0.8rem; letter-spacing: 0.15em; color: var(--color-text-muted); text-decoration: none; transition: color 0.4s ease; }
-        .post-nav a:hover { color: var(--color-forest); }
-        @media (max-width: 768px) { .post-header { padding: 4rem 5% 2rem; } .post-content { padding: 0 5% 4rem; } .post-title { font-size: 1.4rem; } }
+        .article-page { min-height: 100vh; padding-top: 100px; background-color: var(--color-bg); }
+        .article-container { max-width: 720px; margin: 0 auto; padding: 2rem 2rem 6rem; }
+        .article-header { text-align: center; margin-bottom: 4rem; }
+        .article-category { font-family: 'Noto Serif SC', serif; font-size: 0.75rem; letter-spacing: 0.3em; color: #8B4513; margin-bottom: 1.5rem; }
+        .article-title { font-family: 'Noto Serif SC', serif; font-size: 1.8rem; font-weight: 400; letter-spacing: 0.12em; color: var(--color-text-main); margin-bottom: 1rem; line-height: 1.5; }
+        .article-date { font-family: 'Inter', sans-serif; font-size: 0.85rem; color: var(--color-mist-blue); letter-spacing: 0.1em; }
+        .article-cover { width: 100%; max-width: 500px; margin: 3rem auto; }
+        .article-cover img { width: 100%; height: auto; filter: sepia(5%) saturate(0.95); }
+        .article-content p { font-family: 'Noto Serif SC', serif; font-size: 1rem; line-height: 2.4; color: var(--color-text-muted); margin-bottom: 2rem; letter-spacing: 0.03em; text-align: justify; }
+        .article-insert-image { width: 60%; max-width: 400px; margin: 2.5rem auto; display: block; filter: sepia(5%) saturate(0.95); box-shadow: 0 8px 32px rgba(44, 48, 46, 0.06); }
+        .back-link { display: block; text-align: center; padding: 3rem 0; font-family: 'Inter', sans-serif; font-size: 0.85rem; color: var(--color-text-muted); text-decoration: none; letter-spacing: 0.1em; transition: color 0.4s ease; }
+        .back-link:hover { color: var(--color-forest); }
     </style>
 </head>
 <body>
-    <nav class="top-nav">
-        <a href="index.html" class="nav-item"><span class="nav-en">HOME</span><span class="nav-zh">首页</span></a>
+    <nav class="top-nav" style="opacity: 1;">
+        <a href="生命花园_index.html" class="nav-item"><span class="nav-en">HOME</span><span class="nav-zh">首页</span></a>
         <a href="about.html" class="nav-item"><span class="nav-en">ABOUT ME</span><span class="nav-zh">关于我</span></a>
-        <a href="fiction.html" class="nav-item"><span class="nav-en">FICTION</span><span class="nav-zh">虚构</span></a>
         <a href="brunch.html" class="nav-item"><span class="nav-en">THE BRUNCH</span><span class="nav-zh">早午餐</span></a>
-        <a href="blog.html" class="nav-item" style="opacity: 1;"><span class="nav-en" style="color: var(--color-forest);">BLOG</span><span class="nav-zh" style="opacity: 1; transform: translateY(0);">博客</span></a>
+        <a href="blog.html" class="nav-item"><span class="nav-en">BLOG</span><span class="nav-zh">博客</span></a>
         <a href="photography.html" class="nav-item"><span class="nav-en">PHOTOGRAPHY</span><span class="nav-zh">摄影</span></a>
         <a href="travel.html" class="nav-item"><span class="nav-en">TRAVEL</span><span class="nav-zh">旅行</span></a>
     </nav>
-
-    <main class="post-page">
-        <header class="post-header">
-            <p class="post-series"><a href="blog.html">BLOG</a></p>
-            <h1 class="post-title">张爱玲的牙牌签</h1>
-            <p class="post-subtitle">预言、占卜与因果</p>
-            <p class="post-date">2026.3.27</p>
-        </header>
-
-        <div class="post-divider"></div>
-
-        <article class="post-content">
-            <p>　　张爱玲对占卜的兴趣早在年少时已经显现出来，中学毕业前夕，她曾向同学们讨要照片，根据每个同学留给她的印象给大家配图片，她把自己画成看水晶球的预言者，在画纸上记录了三十五个女生未来可能的模样。年仅17岁便可以捕捉不同人的性格，在如同蛛丝一样的细节里自然地感知和好奇其命运的走向，我想这是一个天才作家的直觉，好的作家对他人的人生和故事永远有自然而然的，异常敏锐的觉察。</p>
-
-            <p>　　所谓预言，在此也并不是超自然的感知，而是基于对同学行为、性格、细节的实际观察，进行合乎性格逻辑的推演，构想出尚未发生但有可能发生的未来情景。</p>
-
-            <p>　　这就使得"预言"具有一种特殊的临界状态。它不完全是虚构，因为它根植于真实的人物性格；它也不等于现实，因为它描述的是尚未经验证的可能性。虚实交织，真假难辨，在张爱玲的思维模式里，世界本就是作为一个可供叙事加工的对象而被感知到的。回望她的一生，从少女时期到晚年，她都在现实与虚构的边界上生活与创作，由此也可以说，张爱玲是一个天生的作家，而《算命者的预言》就是她一生创作模式的缩影。</p>
-
-            <p>　　（《算命者的预言》其一，原载于1937年圣玛利亚女校校刊《凤藻）</p>
-
-            <p>　　后来张爱玲也常以牙牌签为自己占卜，问《秧歌》的命运，卜搬家出行的吉凶。这究竟是一种迷信，还是人到困境后的无奈之举？她是否真的相信占卜？其中是否存有怀疑的成分？荣格以"共时性"来解释占卜，认为是有意义的巧合。若回归一个作家的视角来看待这一问题，占卜或许也是一种感知方式。物在作家眼中，始终具有"叙述潜能"，它能承载情感，也能预示命运。在看似不相关的人与物之间，张爱玲从中所做的，是辨认出人与物之间更深层的同构。</p>
-
-            <p>　　她在私人笔记中记下赖雅离世后的一个细节：</p>
-
-            <div class="quote-block">
-                <p>"Ferd 死後象牙key ring tab[鑰匙扣牌忽斷]──鈿合釵分之感。"</p>
-                <p>—张爱玲的私人笔记簿</p>
+    <main class="article-page">
+        <div class="article-container">
+            <header class="article-header">
+                <p class="article-category">BLOG</p>
+                <h1 class="article-title">张爱玲的牙牌签——预言、占卜与因果</h1>
+                <p class="article-date">2026.3.27</p>
+            </header>
+            <div class="article-cover">
+                <img src="个人网站搭建素材/网站-博客系列/张爱玲/标题图.jpg" alt="张爱玲的牙牌签">
             </div>
-
-            <p>　　张爱玲写赖雅的离世如同牙牌断裂，有一种钿合钗分之感。分离的物与分离的人，在结构上彼此呼应。我想这不是synchronicity，而是因果。白居易在《长恨歌》里曾用此意象来写唐明皇和杨贵妃的分离："惟将旧物表深情，钿合金钗寄将去。钗留一股合一扇，钗擘黄金合分钿。"看似毫不相关的物却预言着生离死别，这是无常。百年后，张爱玲再度用这个意象来后-预言她和赖雅的死别。悲剧是永恒的，循环上演的，无常也是有常的。这里面因此有一种因果在，而不是有意义的巧合。而这种因果就是宇宙的节律，万事万物看似毫不相干，但其实都遵循着同一种天道。如此说，唐明皇和杨贵妃的故事又何尝不是一种倾城之恋呢？</p>
-
-            <p>　　也许这也是张爱玲所写的《倾城之恋》真正的含义。她在小说最后写道："香港的陷落成全了她。但是在这不可理喻的世界里，谁知道什么是因，什么是果？谁知道呢？也许就因为要成全她，一个大都市颠覆了。"一个世界倾覆了，成千上万的人死去，历史的巨轮碾过——这一切并非为了一段爱情而发生，但一段爱情好像却因这一切而得以成立。但天道自有其运转逻辑，人的悲欢离合不过是附着其上的偶然。</p>
-
-            <p>　　所谓真情，从来都是人间最深的幻觉。爱情的分合与一个世界，历史的颠覆新生看似毫无关系，但他们其实都遵循着天道。</p>
-
-            <p>　　而天道不可参破，于是有天问，有怅惘，有张爱玲所说的"大的悲哀在"。</p>
-        </article>
-
-        <nav class="post-nav">
-            <a href="blog.html">← 返回博客</a>
-        </nav>
-
-        <footer class="footer">
-            <div class="footer-signature">
-                <p class="footer-line">此致</p>
-                <p class="footer-name">y</p>
-            </div>
-        </footer>
+            <article class="article-content">
+                <p>张爱玲对占卜的兴趣早在年少时已经显现出来，中学毕业前夕，她曾向同学们讨要照片，根据每个同学留给她的印象给大家配图片，她把自己画成看水晶球的预言者，在画纸上记录了三十五个女生未来可能的模样。年仅17岁便可以捕捉不同人的性格，在如同蛛丝一样的细节里自然地感知和好奇其命运的走向，我想这是一个天才作家的直觉，好的作家对他人的人生和故事永远有自然而然的，异常敏锐的觉察。</p>
+                <p>所谓预言，在此也并不是超自然的感知，而是基于对同学行为、性格、细节的实际观察，进行合乎性格逻辑的推演，构想出尚未发生但有可能发生的未来情景。</p>
+                <p>这就使得"预言"具有一种特殊的临界状态。它不完全是虚构，因为它根植于真实的人物性格；它也不等于现实，因为它描述的是尚未经验证的可能性。虚实交织，真假难辨，在张爱玲的思维模式里，世界本就是作为一个可供叙事加工的对象而被感知到的。回望她的一生，从少女时期到晚年，她都在现实与虚构的边界上生活与创作，由此也可以说，张爱玲是一个天生的作家，而《算命者的预言》就是她一生创作模式的缩影。</p>
+                <p>后来张爱玲也常以牙牌签为自己占卜，问《秧歌》的命运，卜搬家出行的吉凶。这究竟是一种迷信，还是人到困境后的无奈之举？她是否真的相信占卜？其中是否存有怀疑的成分？荣格以"共时性"来解释占卜，认为是有意义的巧合。若回归一个作家的视角来看待这一问题，占卜或许也是一种感知方式。</p>
+                <img src="个人网站搭建素材/网站-博客系列/张爱玲/牙牌签配图.jpg" alt="牙牌签配图" class="article-insert-image">
+                <p>物在作家眼中，始终具有"叙述潜能"，它能承载情感，也能预示命运。在看似不相关的人与物之间，张爱玲从中所做的，是辨认出人与物之间更深层的同构。</p>
+                <p>她在私人笔记中记下赖雅离世后的一个细节："Ferd 死後象牙key ring tab[鑰匙扣牌忽斷]──鈿合釵分之感。"</p>
+                <p>张爱玲写赖雅的离世如同牙牌断裂，有一种钿合钗分之感。分离的物与分离的人，在结构上彼此呼应。我想这不是synchronicity，而是因果。白居易在《长恨歌》里曾用此意象来写唐明皇和杨贵妃的分离："惟将旧物表深情，钿合金钗寄将去。钗留一股合一扇，钗擘黄金合分钿。"</p>
+                <p>看似毫不相关的物却预言着生离死别，这是无常。百年后，张爱玲再度用这个意象来后-预言她和赖雅的死别。悲剧是永恒的，循环上演的，无常也是有常的。这里面因此有一种因果在，而不是有意义的巧合。而这种因果就是宇宙的节律，万事万物看似毫不相干，但其实都遵循着同一种天道。</p>
+                <p>如此说，唐明皇和杨贵妃的故事又何尝不是一种倾城之恋呢？也许这也是张爱玲所写的《倾城之恋》真正的含义。</p>
+                <p>她在小说最后写道："香港的陷落成全了她。但是在这不可理喻的世界里，谁知道什么是因，什么是果？谁知道呢？也许就因为要成全她，一个大都市颠覆了。"</p>
+                <p>一个世界倾覆了，成千上万的人死去，历史的巨轮碾过——这一切并非为了一段爱情而发生，但一段爱情好像却因这一切而得以成立。但天道自有其运转逻辑，人的悲欢离合不过是附着其上的偶然。所谓真情，从来都是人间最深的幻觉。</p>
+                <p>爱情的分合与一个世界，历史的颠覆新生看似毫无关系，但他们其实都遵循着天道。而天道不可参破，于是有天问，有怅惘，有张爱玲所说的"大的悲哀在"。</p>
+            </article>
+            <a href="blog.html" class="back-link">← 返回 BLOG</a>
+        </div>
     </main>
 </body>
 </html>

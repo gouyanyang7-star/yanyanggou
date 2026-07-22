@@ -259,10 +259,7 @@ body::before {
     opacity: 1;
 }
 
-/* ========================================
-   顶部导航栏 - 复古植物图鉴·鼠尾草灰绿调
-   自然滚动布局（非固定定位）
-   ======================================== */
+/* 顶部导航栏 - 毛玻璃空气感 + 双语 */
 .top-nav {
     /* 取消固定定位，改为自然滚动布局 */
     position: static;
@@ -276,6 +273,16 @@ body::before {
     /* 底边质感细线 - 老式精装书脊般的精致感 */
     border-bottom: 1px solid rgba(226, 212, 183, 0.4);
     transition: all 0.6s cubic-bezier(0.25, 1, 0.5, 1);
+}
+    gap: 2.5rem;
+    z-index: 50;
+    opacity: 0.85;
+    transition: all 0.6s cubic-bezier(0.25, 1, 0.5, 1);
+    border-bottom: 1px solid rgba(44, 48, 46, 0.05);
+}
+
+.top-nav:hover {
+    opacity: 1;
 }
 
 .nav-item {
@@ -343,15 +350,17 @@ body::before {
     width: 60%;
     height: 1.5px;
     background-color: #E2D4B7;
-    /* 洋甘菊黄下划线 */
 }
 
-/* 板块通用样式 - 统一燕麦底色 */
+.nav-item:hover .nav-zh {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* 板块通用样式 */
 .section {
     min-height: 100vh;
     padding: 8rem 10% 6rem;
-    /* 明确设置所有板块的背景色为燕麦色 */
-    background-color: var(--color-bg);
 }
 
 /* ========================================
@@ -363,8 +372,6 @@ body::before {
     display: flex;
     align-items: center;
     justify-content: center;
-    /* 统一燕麦底色 */
-    background-color: var(--color-bg);
 }
 
 .home-cover-grid {
@@ -556,9 +563,7 @@ body::before {
     padding: 4rem 10% 6rem;
     display: flex;
     justify-content: center;
-    /* 统一燕麦底色 */
-    background-color: var(--color-bg);
-    /* 微光渐变背景叠加 */
+    /* 微光渐变背景 */
     background-image: radial-gradient(ellipse at center bottom, rgba(212, 180, 153, 0.06) 0%, transparent 60%);
 }
 
@@ -829,8 +834,6 @@ body::before {
 /* About Me 板块 */
 .about-section {
     padding-top: 10rem;
-    /* 统一燕麦底色 */
-    background-color: var(--color-bg);
 }
 
 .about-container {
@@ -871,8 +874,6 @@ body::before {
     justify-content: center;
     align-items: center;
     min-height: 80vh;
-    /* 统一燕麦底色 */
-    background-color: var(--color-bg);
 }
 
 .coming-soon-card {
@@ -918,8 +919,6 @@ body::before {
 /* Photography 板块 */
 .photography-section {
     overflow: hidden;
-    /* 统一燕麦底色 */
-    background-color: var(--color-bg);
 }
 
 .photo-carousel-container {
@@ -1015,8 +1014,6 @@ body::before {
 .blog-section {
     max-width: 900px;
     margin: 0 auto;
-    /* 统一燕麦底色 */
-    background-color: var(--color-bg);
 }
 
 .blog-article {
@@ -1123,8 +1120,6 @@ body::before {
 .brunch-section {
     max-width: 800px;
     margin: 0 auto;
-    /* 统一燕麦底色 */
-    background-color: var(--color-bg);
 }
 
 .brunch-item {
@@ -1195,9 +1190,7 @@ body::before {
     flex-direction: column;
     justify-content: flex-end;
     align-items: center;
-    /* 统一燕麦底色 */
-    background-color: var(--color-bg);
-    /* Syotatsu 风格微光渐变叠加 */
+    /* Syotatsu 风格微光渐变 */
     background-image:
         radial-gradient(ellipse at center bottom, rgba(212, 180, 153, 0.1) 0%, transparent 50%),
         radial-gradient(ellipse at center bottom, rgba(143, 163, 161, 0.06) 0%, transparent 60%);
@@ -1299,15 +1292,11 @@ body::before {
 
     .top-nav {
         gap: 1.5rem;
-        padding: 14px 20px;
+        padding: 0.8rem 1rem;
     }
 
     .nav-item {
         font-size: 0.75rem;
-    }
-
-    .nav-item.active::after {
-        width: 50%;
     }
 
     .section {
@@ -1335,7 +1324,6 @@ body::before {
     .top-nav {
         flex-wrap: wrap;
         gap: 1rem;
-        padding: 12px 16px;
     }
 
     .section-title {
@@ -1363,4 +1351,173 @@ body::before {
 
 ::-webkit-scrollbar-thumb:hover {
     background: var(--color-forest);
+}
+
+/* ========================================
+   留言板区域 - 自定义表单
+   ======================================== */
+
+.guestbook-section {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    width: 100% !important;
+    max-width: 600px !important;
+    margin: 90px auto 60px auto !important;
+    padding: 0 20px !important;
+    box-sizing: border-box !important;
+    clear: both !important;
+}
+
+.guestbook-header {
+    width: 100% !important;
+    text-align: center !important;
+    margin-bottom: 25px !important;
+}
+
+.guestbook-header h3 {
+    color: #4A584A !important;
+    font-size: 13px !important;
+    letter-spacing: 3px !important;
+    font-weight: bold !important;
+    margin: 0 0 6px 0 !important;
+}
+
+.guestbook-subtitle {
+    color: #888888 !important;
+    font-size: 10px !important;
+    margin: 0 0 12px 0 !important;
+}
+
+.header-line {
+    width: 160px !important;
+    height: 1px !important;
+    background: #E2D4B7 !important;
+    opacity: 0.8 !important;
+    margin: 0 auto !important;
+}
+
+.guestbook-form {
+    width: 100% !important;
+    margin-bottom: 30px !important;
+}
+
+.form-row {
+    display: flex !important;
+    gap: 4% !important;
+    margin-bottom: 12px !important;
+}
+
+.form-row input {
+    flex: 1 !important;
+    width: 48% !important;
+}
+
+.guestbook-form input,
+.guestbook-form textarea {
+    width: 100% !important;
+    padding: 10px 12px !important;
+    background-color: #FCFAF6 !important;
+    border: 1px solid #E6E0D4 !important;
+    border-radius: 3px !important;
+    font-size: 12px !important;
+    font-family: "Noto Serif SC", serif !important;
+    color: #2D3A2C !important;
+    transition: border-color 0.3s ease !important;
+    box-sizing: border-box !important;
+}
+
+.guestbook-form input::placeholder,
+.guestbook-form textarea::placeholder {
+    color: #A0988E !important;
+}
+
+.guestbook-form input:focus,
+.guestbook-form textarea:focus {
+    outline: none !important;
+    border-color: #4A584A !important;
+}
+
+.guestbook-form textarea {
+    height: 75px !important;
+    resize: vertical !important;
+    margin-bottom: 12px !important;
+}
+
+.guestbook-submit {
+    display: block !important;
+    margin-left: auto !important;
+    padding: 10px 28px !important;
+    background-color: #4A584A !important;
+    color: #F4F1EA !important;
+    border: none !important;
+    border-radius: 3px !important;
+    font-size: 12px !important;
+    font-family: "Noto Serif SC", serif !important;
+    letter-spacing: 2px !important;
+    cursor: pointer !important;
+    transition: background-color 0.3s ease !important;
+}
+
+.guestbook-submit:hover {
+    background-color: #5A685A !important;
+}
+
+.guestbook-comments {
+    width: 100% !important;
+}
+
+.loading-text {
+    text-align: center !important;
+    color: #888888 !important;
+    font-size: 11px !important;
+}
+
+.comment-item {
+    padding: 15px 0 !important;
+    border-bottom: 1px solid rgba(230, 224, 212, 0.5) !important;
+}
+
+.comment-header {
+    display: flex !important;
+    justify-content: space-between !important;
+    align-items: center !important;
+    margin-bottom: 8px !important;
+}
+
+.comment-nickname {
+    color: #4A584A !important;
+    font-size: 12px !important;
+    font-weight: bold !important;
+}
+
+.comment-time {
+    color: #A0988E !important;
+    font-size: 10px !important;
+}
+
+.comment-content {
+    color: #2D3A2C !important;
+    font-size: 12px !important;
+    line-height: 1.6 !important;
+}
+
+@media (max-width: 768px) {
+    .guestbook-section {
+        padding: 0 15px !important;
+        margin: 60px auto 50px auto !important;
+    }
+
+    .form-row {
+        flex-direction: column !important;
+        gap: 12px !important;
+    }
+
+    .form-row input {
+        width: 100% !important;
+    }
+
+    .header-line {
+        width: 120px !important;
+    }
 }

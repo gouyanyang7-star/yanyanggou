@@ -3,66 +3,53 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>《Hamnet》里的回头 - THE BRUNCH - 生命花园</title>
-    <link rel="stylesheet" href="style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300&family=Noto+Serif+SC:wght@300;400&family=Inter:wght@300;400&display=swap" rel="stylesheet">
+    <title>《Hamnet》里的回头 - THE BRUNCH</title>
+    <link rel="stylesheet" href="生命花园_style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@300;400&family=Inter:wght@300;400&display=swap" rel="stylesheet">
     <style>
-        .post-page { min-height: 100vh; background-color: var(--color-bg); padding-top: 80px; }
-        .post-header { padding: 6rem 10% 3rem; text-align: center; max-width: 800px; margin: 0 auto; }
-        .post-series { font-family: 'Inter', sans-serif; font-size: 0.7rem; font-weight: 400; letter-spacing: 0.25em; color: var(--color-mist-blue); opacity: 0.7; text-transform: uppercase; margin-bottom: 1.5rem; }
-        .post-series a { color: inherit; text-decoration: none; }
-        .post-series a:hover { color: var(--color-forest); }
-        .post-title { font-family: 'Noto Serif SC', serif; font-size: 1.8rem; font-weight: 400; letter-spacing: 0.1em; color: var(--color-text-main); line-height: 1.5; }
-        .post-date { font-family: 'Inter', sans-serif; font-size: 0.75rem; letter-spacing: 0.15em; color: var(--color-mist-blue); opacity: 0.8; margin-top: 1rem; }
-        .post-divider { width: 40px; height: 1px; background: rgba(44, 48, 46, 0.15); margin: 3rem auto; }
-        .post-content { max-width: 720px; margin: 0 auto; padding: 0 10% 6rem; }
-        .post-content p { font-family: 'Noto Serif SC', serif; font-size: 1rem; font-weight: 300; line-height: 2.4; color: var(--color-text-muted); letter-spacing: 0.02em; text-indent: 2em; margin-bottom: 1.8rem; }
-        .post-nav { text-align: center; padding: 0 10% 6rem; }
-        .post-nav a { font-family: 'Inter', sans-serif; font-size: 0.8rem; letter-spacing: 0.15em; color: var(--color-text-muted); text-decoration: none; transition: color 0.4s ease; }
-        .post-nav a:hover { color: var(--color-forest); }
-        @media (max-width: 768px) { .post-header { padding: 4rem 5% 2rem; } .post-content { padding: 0 5% 4rem; } .post-title { font-size: 1.4rem; } }
+        .article-page { min-height: 100vh; padding-top: 100px; background-color: var(--color-bg); }
+        .article-container { max-width: 720px; margin: 0 auto; padding: 2rem 2rem 6rem; }
+        .article-header { text-align: center; margin-bottom: 4rem; }
+        .article-category { font-family: 'Inter', sans-serif; font-size: 0.75rem; letter-spacing: 0.3em; color: var(--color-mist-blue); margin-bottom: 1.5rem; }
+        .article-title { font-family: 'Noto Serif SC', serif; font-size: 1.8rem; font-weight: 400; letter-spacing: 0.15em; color: var(--color-text-main); margin-bottom: 1rem; line-height: 1.5; }
+        .article-date { font-family: 'Inter', sans-serif; font-size: 0.85rem; color: var(--color-text-muted); letter-spacing: 0.1em; }
+        .article-cover { width: 100%; max-width: 600px; margin: 3rem auto; }
+        .article-cover img { width: 100%; height: auto; filter: sepia(5%) saturate(0.95); }
+        .article-content p { font-family: 'Inter', sans-serif; font-size: 1rem; line-height: 2.4; color: var(--color-text-muted); margin-bottom: 2rem; letter-spacing: 0.02em; text-align: justify; }
+        .back-link { display: block; text-align: center; padding: 3rem 0; font-family: 'Inter', sans-serif; font-size: 0.85rem; color: var(--color-text-muted); text-decoration: none; letter-spacing: 0.1em; transition: color 0.4s ease; }
+        .back-link:hover { color: var(--color-forest); }
     </style>
 </head>
 <body>
-    <nav class="top-nav">
-        <a href="index.html" class="nav-item"><span class="nav-en">HOME</span><span class="nav-zh">首页</span></a>
+    <nav class="top-nav" style="opacity: 1;">
+        <a href="生命花园_index.html" class="nav-item"><span class="nav-en">HOME</span><span class="nav-zh">首页</span></a>
         <a href="about.html" class="nav-item"><span class="nav-en">ABOUT ME</span><span class="nav-zh">关于我</span></a>
-        <a href="fiction.html" class="nav-item"><span class="nav-en">FICTION</span><span class="nav-zh">虚构</span></a>
-        <a href="brunch.html" class="nav-item" style="opacity: 1;"><span class="nav-en" style="color: var(--color-forest);">THE BRUNCH</span><span class="nav-zh" style="opacity: 1; transform: translateY(0);">早午餐</span></a>
+        <a href="brunch.html" class="nav-item"><span class="nav-en">THE BRUNCH</span><span class="nav-zh">早午餐</span></a>
         <a href="blog.html" class="nav-item"><span class="nav-en">BLOG</span><span class="nav-zh">博客</span></a>
         <a href="photography.html" class="nav-item"><span class="nav-en">PHOTOGRAPHY</span><span class="nav-zh">摄影</span></a>
         <a href="travel.html" class="nav-item"><span class="nav-en">TRAVEL</span><span class="nav-zh">旅行</span></a>
     </nav>
-
-    <main class="post-page">
-        <header class="post-header">
-            <p class="post-series"><a href="brunch.html">THE BRUNCH</a></p>
-            <h1 class="post-title">《Hamnet》里的回头</h1>
-            <p class="post-date">2026</p>
-        </header>
-
-        <div class="post-divider"></div>
-
-        <article class="post-content">
-            <p>　　在电影的开头，莎士比亚给安妮丝讲了一个他认为最动人的故事，是俄耳甫斯的悲剧。俄耳甫斯前往冥界拯救妻子欧律狄刻，冥王冥后应允，但条件是在走出冥界之前他绝不能回头。然而就在即将成功时，俄耳甫斯忍不住回头确认妻子是否跟来，导致欧律狄刻消散，他也永失所爱。这是人类历史上永恒的回头，它镌刻着在世之人的执着。俄耳甫斯有所求，无论是对妻子，还是对爱本身。然而这一切本质都是对色相的执着，由我执则会生妄念，所以他注定会回头。只是那一瞥，他看见的不是为人的妻子，而是一双幽幽的鬼眼。爱与死亡同时发生，因此这一回头显得格外惊心动魄，它触及了这个人间的唯一真相，色空不二，爱欲与死欲本为一体。在东方，这是美人白骨的故事。曹丕《谈生》里写，一男与美人成婚，妻叮嘱他三年之后才可以烛火观她，然而男子忍了两年，一天忍不住夜间窥视，发现妻子上身是人身，下身是骷髅，此时妻子惊醒，与之永诀。同样是由爱体验死亡，由执着见空。曹雪芹的风月宝鉴，一面是美人，一面是枯骨，由警幻仙子所作，警幻二字足以说明美人白骨要敲打，撞击世人的目的：勘破色相，悟得空性。</p>
-
-            <p>　　然而人间就是最大的幻觉，这个肉身安住的尘世总是制造万千幻象，让人们难以悟道。所以这个回头的悲剧要在人类历史上轮回无数次。悲剧的本质是痴，人们总想抓住，将短暂的虚幻变成永恒，但痴也正是人性的闪光之处，是明知不可为而为之，是一种向死而生的勇气，我们才会被唤起对同类巨大的怜悯和同情。</p>
-
-            <p>　　影片里，哈姆奈特弥留之际的回头一瞥是一种真正的勇敢，传统故事里这是生者的执念，电影里这是死者勇敢的告别，对家人，对生的眷恋的告别，面对像黑洞一样未知的死亡，他选择承受。只是生者还在面临巨大的悲痛。</p>
-
-            <p>　　而面对这无常和注定的苦难，还活着的人该如何自处呢？对安妮丝而言，这痛苦巨大到足以摧毁她，这样的时刻她只能从外界寻找支撑的力量，所以她要一遍遍地要求莎士比亚回头，"look at me"，是要通过他者来确认自我的存在。而对于莎士比亚呢？文字是对抗虚无的方式，在《哈姆雷特》里他写下"万物皆有一死，穿越自然，回到永恒。"他将他永远封存在故事里，让自己死，儿子生。尽管他的肉身早已消散，但每当人们读到这个故事时，一次次被这个悲剧打动时，都会是一次关于记住的仪式。哈姆奈特在文字里得到永生。安妮丝看懂了这个故事，当莎士比亚在舞台上回头的那一刻，他们才真正承认了儿子的死亡，以及对他深刻的爱。影片的最后，爱与死亡再一次同时发生。</p>
-        </article>
-
-        <nav class="post-nav">
-            <a href="brunch.html">← 返回早午餐</a>
-        </nav>
-
-        <footer class="footer">
-            <div class="footer-signature">
-                <p class="footer-line">此致</p>
-                <p class="footer-name">y</p>
+    <main class="article-page">
+        <div class="article-container">
+            <header class="article-header">
+                <p class="article-category">THE BRUNCH</p>
+                <h1 class="article-title">《Hamnet》里的回头</h1>
+                <p class="article-date">2026</p>
+            </header>
+            <div class="article-cover">
+                <img src="个人网站搭建素材/网站-brunch系列/《哈姆内特》里的回头/标题图也是配图.jpg" alt="《Hamnet》里的回头">
             </div>
-        </footer>
+            <article class="article-content">
+                <p>在电影的开头，莎士比亚给安妮丝讲了一个他认为最动人的故事，是俄耳甫斯的悲剧。俄耳甫斯前往冥界拯救妻子欧律狄刻，冥王冥后应允，但条件是在走出冥界之前他绝不能回头。然而就在即将成功时，俄耳甫斯忍不住回头确认妻子是否跟来，导致欧律狄刻消散，他也永失所爱。</p>
+                <p>这是人类历史上永恒的回头，它镌刻着在世之人的执着。俄耳甫斯有所求，无论是对妻子，还是对爱本身。然而这一切本质都是对色相的执着，由我执则会生妄念，所以他注定会回头。只是那一瞥，他看见的不是为人的妻子，而是一双幽幽的鬼眼。爱与死亡同时发生，因此这一回头显得格外惊心动魄，它触及了这个人间的唯一真相，色空不二，爱欲与死欲本为一体。</p>
+                <p>在东方，这是美人白骨的故事。曹丕《谈生》里写，一男与美人成婚，妻叮嘱他三年之后才可以烛火观她，然而男子忍了两年，一天忍不住夜间窥视，发现妻子上身是人身，下身是骷髅，此时妻子惊醒，与之永诀。同样是由爱体验死亡，由执着见空。曹雪芹的风月宝鉴，一面是美人，一面是枯骨，由警幻仙子所作，警幻二字足以说明美人白骨要敲打，撞击世人的目的：勘破色相，悟得空性。</p>
+                <p>然而人间就是最大的幻觉，这个肉身安住的尘世总是制造万千幻象，让人们难以悟道。所以这个回头的悲剧要在人类历史上轮回无数次。悲剧的本质是痴，人们总想抓住，将短暂的虚幻变成永恒，但痴也正是人性的闪光之处，是明知不可为而为之，是一种向死而生的勇气，我们才会被唤起对同类巨大的怜悯和同情。</p>
+                <p>影片里，哈姆奈特弥留之际的回头一瞥是一种真正的勇敢，传统故事里这是生者的执念，电影里这是死者勇敢的告别，对家人，对生的眷恋的告别，面对像黑洞一样未知的死亡，他选择承受。只是生者还在面临巨大的悲痛。</p>
+                <p>而面对这无常和注定的苦难，还活着的人该如何自处呢？对安妮丝而言，这痛苦巨大到足以摧毁她，这样的时刻她只能从外界寻找支撑的力量，所以她要一遍遍地要求莎士比亚回头，"look at me"，是要通过他者来确认自我的存在。而对于莎士比亚呢？文字是对抗虚无的方式，在《哈姆雷特》里他写下"万物皆有一死，穿越自然，回到永恒。"他将他永远封存在故事里，让自己死，儿子生。尽管他的肉身早已消散，但每当人们读到这个故事时，一次次被这个悲剧打动时，都会是一次关于记住的仪式。哈姆奈特在文字里得到永生。</p>
+                <p>安妮丝看懂了这个故事，当莎士比亚在舞台上回头的那一刻，他们才真正承认了儿子的死亡，以及对他深刻的爱。影片的最后，爱与死亡再一次同时发生。</p>
+            </article>
+            <a href="brunch.html" class="back-link">← 返回 THE BRUNCH</a>
+        </div>
     </main>
 </body>
 </html>
