@@ -244,3 +244,138 @@ document.addEventListener('error', function(e) {
         e.target.style.display = 'none';
     }
 }, true);
+
+// ========== Cusdis 自定义留言板功能 ==========
+document.addEventListener('DOMContentLoaded', function() {
+    const guestbookForm = document.getElementById('guestbook-form');
+    const guestbookComments = document.getElementById('guestbook-comments');
+
+    if (guestbookForm && guestbookComments) {
+        // 加载已有评论
+        loadCusdisComments(guestbookComments);
+
+        // 表单提交
+        guestbookForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+
+            const nickname = document.getElementById('guestbook-nickname').value.trim();
+            const email = document.getElementById('guestbook-email').value.trim();
+            const content = document.getElementById('guestbook-content').value.trim();
+
+            if (!nickname || !content) {
+                alert('请填写昵称和评论内容');
+                return;
+            }
+
+            // 提交到 Cusdis API
+            submitCusdisComment(nickname, email, content, function(success) {
+                if (success) {
+                    // 清空表单
+                    guestbookForm.reset();
+                    // 显示成功消息
+                    showSubmitMessage('留言已发送，等待审核');
+                    // 重新加载评论
+                    loadCusdisComments(guestbookComments);
+                } else {
+                    showSubmitMessage('发送失败，请稍后重试');
+                }
+            });
+        });
+    }
+});
+
+// 提交评论到 Cusdis
+function submitCusdisComment(nickname, email, content, callback) {
+    const data = {
+        app_id: '29c0f603-943a-4ab8-9eca-28270ae18704',
+        page_id: 'home',
+        page_url: 'https://gouyanyang7-star.github.io/yanyanggou/',
+        page_title: 'yanyanggou Home',
+        nickname: nickname,
+        email: email || '',
+        content: content
+    };
+
+    fetch('https://cusdis.com/api/v1/comment', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(data)
+    })
+    .then(response => response.json())
+    .then(result => {
+        console.log('Comment submitted:', result);
+        callback(true);
+    })
+    .catch(error => {
+        console.error('Error submitting comment:', error);
+        callback(false);
+    });
+}
+
+// 加载 Cusdis 评论
+function loadCusdisComments(container) {
+    container.innerHTML = '<p class="loading-text">评论加载中...</p>';
+
+    fetch('https://cusdis.com/api/v1/comments?app_id=29c0f603-943a-4ab8-9eca-28270ae18704&page_id=home')
+        .then(response => response.json())
+        .then(data => {
+            if (data.data && data.data.length > 0) {
+                renderCusdisComments(container, data.data);
+            } else {
+                container.innerHTML = '<p class="loading-text">暂无评论，来写下第一条留言吧~</p>';
+            }
+        })
+        .catch(error => {
+            console.error('Error loading comments:', error);
+            container.innerHTML = '<p class="loading-text">评论加载失败，请刷新重试</p>';
+        });
+}
+
+// 渲染评论列表
+function renderCusdisComments(container, comments) {
+    container.innerHTML = '';
+
+    comments.forEach(comment => {
+        const commentDiv = document.createElement('div');
+        commentDiv.className = 'comment-item';
+
+        const date = new Date(comment.created_at || comment.createdAt);
+        const dateStr = date.toLocaleDateString('zh-CN', {
+            year: 'numeric',
+            month: '2-digit',
+            day: '2-digit'
+        });
+
+        commentDiv.innerHTML = `
+            <div class="comment-header">
+                <span class="comment-nickname">${escapeHtml(comment.nickname)}</span>
+                <span class="comment-time">${dateStr}</span>
+            </div>
+            <div class="comment-content">${escapeHtml(comment.content)}</div>
+        `;
+
+        container.appendChild(commentDiv);
+    });
+}
+
+// 显示提交消息
+function showSubmitMessage(message) {
+    const msgDiv = document.createElement('div');
+    msgDiv.style.cssText = 'text-align: center; padding: 10px; color: #4A584A; font-size: 12px;';
+    msgDiv.textContent = message;
+
+    const form = document.getElementById('guestbook-form');
+    if (form) {
+        form.appendChild(msgDiv);
+        setTimeout(() => msgDiv.remove(), 3000);
+    }
+}
+
+// HTML 转义
+function escapeHtml(text) {
+    const div = document.createElement('div');
+    div.textContent = text;
+    return div.innerHTML;
+}
