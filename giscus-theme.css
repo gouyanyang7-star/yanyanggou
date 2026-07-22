@@ -1,0 +1,151 @@
+/* Giscus 自定义主题 - 生命花园燕麦森系风格 */
+
+:root {
+    --color-bg: #F4F1EA;
+    --color-text-main: #2C302E;
+    --color-text-muted: #4A4E4B;
+    --color-forest: #5F6B5E;
+    --color-mist-blue: #8FA3A1;
+    --color-twarlight: #D4B499;
+}
+
+/* 全局背景 */
+body {
+    background-color: var(--color-bg) !important;
+}
+
+/* 评论框容器 */
+.gsc-comment-box {
+    background-color: transparent !important;
+}
+
+/* 输入框 */
+.gsc-comment-box textarea,
+.gsc-comment-box input {
+    background-color: rgba(255, 255, 255, 0.5) !important;
+    border: 1px solid rgba(44, 48, 46, 0.08) !important;
+    color: var(--color-text-main) !important;
+    font-family: 'Noto Serif SC', 'Inter', serif !important;
+}
+
+.gsc-comment-box textarea:focus,
+.gsc-comment-box input:focus {
+    border-color: var(--color-forest) !important;
+}
+
+/* 主按钮样式 */
+.gsc-comment-box .gsc-comment-box-buttons button {
+    background-color: var(--color-forest) !important;
+    color: var(--color-bg) !important;
+    border: none !important;
+    font-family: 'Cormorant Garamond', 'Noto Serif SC', serif !important;
+    letter-spacing: 0.1em !important;
+}
+
+.gsc-comment-box .gsc-comment-box-buttons button:hover {
+    background-color: var(--color-twarlight) !important;
+    color: var(--color-text-main) !important;
+}
+
+/* 评论列表 */
+.gsc-comments {
+    background-color: transparent !important;
+}
+
+/* 单条评论 */
+.gsc-comment {
+    background-color: rgba(255, 255, 255, 0.3) !important;
+    border: 1px solid rgba(44, 48, 46, 0.04) !important;
+    border-radius: 0 !important;
+}
+
+/* 评论内容 */
+.gsc-comment-content {
+    color: var(--color-text-muted) !important;
+    font-family: 'Inter', -apple-system, sans-serif !important;
+    line-height: 1.8 !important;
+}
+
+/* 用户名 */
+.gsc-comment-author {
+    color: var(--color-forest) !important;
+    font-family: 'Noto Serif SC', serif !important;
+}
+
+/* 时间戳 */
+.gsc-comment-time {
+    color: var(--color-mist-blue) !important;
+    opacity: 0.8 !important;
+}
+
+/* 回复按钮 */
+.gsc-comment-reply {
+    color: var(--color-text-muted) !important;
+}
+
+.gsc-comment-reply:hover {
+    color: var(--color-forest) !important;
+}
+
+/* 反应按钮 */
+.gsc-comment-reactions button {
+    background-color: transparent !important;
+    border: 1px solid rgba(44, 48, 46, 0.12) !important;
+    color: var(--color-text-muted) !important;
+}
+
+.gsc-comment-reactions button:hover {
+    background-color: rgba(255, 255, 255, 0.6) !important;
+    border-color: var(--color-forest) !important;
+    color: var(--color-forest) !important;
+}
+
+/* 页码 */
+.gsc-pagination {
+    background-color: transparent !important;
+}
+
+.gsc-pagination button {
+    background-color: transparent !important;
+    border: 1px solid rgba(44, 48, 46, 0.12) !important;
+    color: var(--color-text-muted) !important;
+}
+
+.gsc-pagination button:hover {
+    background-color: rgba(255, 255, 255, 0.6) !important;
+    border-color: var(--color-forest) !important;
+    color: var(--color-forest) !important;
+}
+
+/* 链接 */
+a {
+    color: var(--color-forest) !important;
+}
+
+a:hover {
+    color: var(--color-twarlight) !important;
+}
+
+/* 代码块 */
+.gsc-comment-content code {
+    background-color: rgba(95, 107, 94, 0.1) !important;
+    color: var(--color-text-main) !important;
+    border-radius: 2px !important;
+}
+
+/* 引用块 */
+.gsc-comment-content blockquote {
+    border-left: 2px solid var(--color-forest) !important;
+    background-color: rgba(255, 255, 255, 0.4) !important;
+    color: var(--color-text-muted) !important;
+}
+
+/* 隐藏 Giscus 标题 */
+.gsc-header {
+    display: none !important;
+}
+
+/* 加载动画 */
+.gsc-loading {
+    color: var(--color-forest) !important;
+}

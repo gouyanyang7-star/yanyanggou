@@ -1346,3 +1346,68 @@ body::before {
 ::-webkit-scrollbar-thumb:hover {
     background: var(--color-forest);
 }
+
+/* ========================================
+   留言板区域 - Giscus
+   ======================================== */
+.guestbook-section {
+    margin-top: 80px;
+    padding: 0 10% 6rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.guestbook-header {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.guestbook-header h3 {
+    font-family: 'Inter', sans-serif;
+    font-size: 14px;
+    font-weight: 400;
+    letter-spacing: 3px;
+    color: #4A584A;
+    margin: 0;
+}
+
+.guestbook-header .header-line {
+    width: 120px;
+    height: 1px;
+    background: #E2D4B7;
+    margin: 10px auto 30px auto;
+}
+
+.giscus-container {
+    width: 100%;
+    max-width: 750px;
+    margin: 0 auto;
+    min-height: 150px;
+}
+
+/* Giscus iframe 样式调整 */
+.giscus-container iframe {
+    width: 100% !important;
+    border: none !important;
+}
+
+/* 响应式 */
+@media (max-width: 768px) {
+    .guestbook-section {
+        padding: 0 5% 4rem;
+    }
+
+    .guestbook-header h3 {
+        font-size: 12px;
+        letter-spacing: 2px;
+    }
+
+    .guestbook-header .header-line {
+        width: 80px;
+    }
+
+    .giscus-container {
+        max-width: 100%;
+    }
+}
